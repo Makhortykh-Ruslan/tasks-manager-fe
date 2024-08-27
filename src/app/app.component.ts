@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { completeIconSet } from '../tm-icons/tm-icons';
+import { TmIconsService } from '../tm-icons/tm-icons.service';
+
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
@@ -8,5 +11,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
 })
 export class AppComponent {
-  title = 'tasks-manager-fe';
+  constructor(private epIconsService: TmIconsService) {
+    epIconsService.registerIcons(completeIconSet);
+  }
 }

@@ -1,0 +1,13 @@
+{
+  "verbose": true,
+  "srcFiles": ["./src/assets/icons/*.svg"],
+  "outputDirectory": "./src/tm-icons",
+  "fileName": "tm-icons",
+  "interfaceName": "TmIcon",
+  "typeName": "tmIcon",
+  "prefix": "tmIcons",
+  "exportCompleteIconSet": true,
+  "svgoConfig": {
+    "plugins": ["cleanupAttrs"]
+  }
+}
