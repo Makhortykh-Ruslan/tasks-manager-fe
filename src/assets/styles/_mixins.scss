@@ -1,0 +1,68 @@
+@import "vars";
+
+@mixin font-base(
+  $size: $font-size-base,
+  $font-weight: 400,
+  $height: $line-height-base,
+  $font-style: normal,
+  $font-family: $font-family-base
+) {
+  font: $font-weight $font-style #{$size}/#{$height $font-family};
+}
+
+@mixin svg-stroke($color) {
+  &::ng-deep svg {
+    & path, & circle {
+      stroke: $color;
+      fill: none;
+    }
+  }
+}
+
+@mixin svg-fill($color) {
+  &::ng-deep svg {
+    & path, & circle {
+      fill: $color;
+      stroke: none;
+    }
+  }
+}
+
+@mixin svg-fill-without-deep($color) {
+  & svg {
+    & path, & circle {
+      fill: $color;
+      stroke: none;
+    }
+  }
+}
+
+@mixin svg-stroke-without-deep($color) {
+  & svg {
+    & path, & circle {
+      fill: none;
+      stroke: $color;
+    }
+  }
+}
+
+@mixin svg-size($width, $height) {
+  &::ng-deep svg {
+    width: $width;
+    height: $height;
+  }
+}
+
+@mixin svg-size-without-deep($width, $height) {
+  & svg {
+    width: $width;
+    height: $height;
+  }
+}
+
+@mixin truncate($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

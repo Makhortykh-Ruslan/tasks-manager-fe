@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-
-import { TmIconModule } from '../../../tm-icons/tm-icon.module';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
   standalone: true,
-  imports: [TmIconModule],
-  styleUrls: ['./auth.component.scss'],
+  template: ` <router-outlet></router-outlet>`,
+  imports: [RouterOutlet],
 })
 export class AuthComponent {}

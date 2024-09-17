@@ -1,0 +1,14 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+.component {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &-title {
+    @include font-base(18px, 700, normal, normal);
+
+    color: $black;
+  }
+}

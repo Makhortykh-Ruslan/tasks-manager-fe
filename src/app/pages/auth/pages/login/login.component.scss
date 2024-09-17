@@ -1,0 +1,14 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+.page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  &-main {
+    width: 360px;
+  }
+}

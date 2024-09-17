@@ -1,0 +1,56 @@
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/vars";
+
+.component-label {
+  @include font-base(14px, 500, normal, normal);
+}
+
+.component-input {
+  display: flex;
+  align-items: center;
+  margin: 8px 0 0 0;
+  border-radius: 8px;
+  border: 1px solid $gray-light;
+  padding: 8px 16px;
+  transition: 0.3s ease-in-out;
+
+  & .icon {
+    @include svg-size(20px, 20px);
+    @include svg-stroke($gray-light);
+
+    transition: 0.3s ease-in-out;
+  }
+
+  &:focus-within {
+    border: 1px solid $gray;
+    transition: 0.3s ease-in-out;
+
+    & .icon {
+      @include svg-stroke($gray);
+
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  & .input {
+    @include font-base(16px, 400, normal, normal);
+
+    color: $gray;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      @include font-base(16px, 400, normal, normal);
+
+      color: $gray-light;
+    }
+  }
+
+  &.error {
+    border: 1px solid $error;
+    transition: 0.3s ease-in-out;
+  }
+}
+

@@ -1,21 +1,40 @@
 import { provideRouter, Routes } from '@angular/router';
+import { appRoutes } from '@core/constants/routes';
 
-export const routes: Routes = [
-  {
-    path: '',
-    loadComponent: () =>
-      import('./pages/auth/auth.component').then((c) => c.AuthComponent),
-  },
-  {
-    path: 'main',
-    loadComponent: () =>
-      import('./pages/main/main.component').then((c) => c.MainComponent),
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
-];
+import { environment } from '../environments/environment';
 
-export const appRoutingProviders = [provideRouter(routes)];
+const routes = (): Routes => {
+  const res: Routes = [
+    {
+      path: appRoutes.icons.routerPath,
+      loadComponent: () =>
+        import('../tm-icons/icons-preview/icons-preview.component').then(
+          (c) => c.IconsPreviewComponent,
+        ),
+    },
+    {
+      // path: appRoutes.auth.routerPath,
+      path: '',
+      loadChildren: () =>
+        import('./pages/auth/auth-routing').then((r) => r.AUTH_ROUTES),
+    },
+    // {
+    //   path: '',
+    //   loadComponent: () =>
+    //     import('./pages/main/main.component').then((c) => c.MainComponent),
+    // },
+    {
+      path: '**',
+      redirectTo: '',
+      pathMatch: 'full',
+    },
+  ];
+
+  if (environment.production) {
+    res.unshift();
+  }
+
+  return res;
+};
+
+export const appRoutingProviders = [provideRouter(routes())];

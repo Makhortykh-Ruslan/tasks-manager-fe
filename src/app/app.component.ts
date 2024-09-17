@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-import { completeIconSet } from '../tm-icons/tm-icons';
-import { TmIconsService } from '../tm-icons/tm-icons.service';
+import { completeIconSet } from '@icons/tm-icons';
+import { TmIconsService } from '@icons/tm-icons.service';
 
 @Component({
   selector: 'app-root',

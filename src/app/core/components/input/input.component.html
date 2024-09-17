@@ -1,0 +1,20 @@
+<section class="component">
+  <label for="tm-input" class="component-label">
+    {{ label }}
+
+    <span class="required" *ngIf="isRequired">*</span>
+  </label>
+
+  <div class="component-input" [class.error]="formControl.errors">
+    <input
+      id="tm-input"
+      class="input"
+      [type]="type"
+      [formControl]="formControl"
+      [placeholder]="placeholder"
+    />
+    <app-icon class="icon" *ngIf="rightIcon" [name]="rightIcon"></app-icon>
+  </div>
+
+  <span class="component-error">{{ error }}</span>
+</section>

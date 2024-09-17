@@ -1,0 +1,18 @@
+<div class="header">
+  <h1>TASKS MANAGER ICONS PACKAGE</h1>
+  <div>
+    <input
+      [formControl]="searchControl"
+      placeholder="Filter icons"
+      type="text"
+    />
+  </div>
+</div>
+<div class="icon-list">
+  <div *ngFor="let icon of icons" class="icon-card">
+    <div class="icon-card svg">
+      <app-icon [name]="icon.name"></app-icon>
+      <p>{{ icon.name }}</p>
+    </div>
+  </div>
+</div>
