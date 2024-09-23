@@ -11,6 +11,19 @@
           "standalone": true,
           "skipImport": true,
           "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true,
+          "skipImport": true,
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true,
+          "skipImport": true,
+          "skipTests": true
         }
       },
       "root": "",

@@ -11,8 +11,8 @@
   margin: 8px 0 0 0;
   border-radius: 8px;
   border: 1px solid $gray-light;
-  padding: 8px 16px;
   transition: 0.3s ease-in-out;
+  overflow: hidden;
 
   & .icon {
     @include svg-size(20px, 20px);
@@ -40,6 +40,7 @@
     height: 100%;
     border: none;
     outline: none;
+    padding: 8px 16px;
 
     &::placeholder {
       @include font-base(16px, 400, normal, normal);

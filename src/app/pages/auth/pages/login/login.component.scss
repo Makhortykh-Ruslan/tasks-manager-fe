@@ -10,5 +10,53 @@
 
   &-main {
     width: 360px;
+    display: grid;
+    align-items: center;
+
+    & .logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    & .title {
+      @include font-base(30px, 700, 38px, normal);
+
+      text-align: center;
+      color: $black;
+    }
+
+    & .sub-title {
+      @include font-base(16px, 400, normal, normal);
+
+      color: $grey-2;
+      text-align: center;
+    }
+
+    & .flex {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &.space-between {
+        justify-content: space-between;
+      }
+
+      &.center {
+        justify-content: center;
+      }
+
+      & .text {
+        @include font-base(14px, 400, normal, normal);
+
+        color: $grey-2;
+      }
+
+      & .blue {
+        @include font-base(14px, 700, normal, normal);
+
+        color: $blue;
+        cursor: pointer;
+      }
+    }
   }
 }
