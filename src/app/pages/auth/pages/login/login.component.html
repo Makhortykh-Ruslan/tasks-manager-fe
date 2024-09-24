@@ -10,6 +10,7 @@
       [label]="labels.EMAIL"
       [placeholder]="placeholders.EMAIL"
       [formControl]="formGroup.get(controlNames.EMAIL) | controlConverter"
+      [error]="emailErrorMessage"
     ></app-input>
 
     <app-input
@@ -18,6 +19,7 @@
       [label]="labels.PASSWORD"
       [placeholder]="placeholders.PASSWORD"
       [formControl]="formGroup.get(controlNames.PASSWORD) | controlConverter"
+      [error]="passwordErrorMessage"
     ></app-input>
 
     <div class="flex space-between mb-24">

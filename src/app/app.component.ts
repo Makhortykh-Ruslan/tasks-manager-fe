@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { completeIconSet } from '@icons/tm-icons';
 import { TmIconsService } from '@icons/tm-icons.service';
@@ -8,6 +8,7 @@ import { TmIconsService } from '@icons/tm-icons.service';
   template: `<router-outlet></router-outlet>`,
   standalone: true,
   imports: [RouterOutlet],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   constructor(private epIconsService: TmIconsService) {

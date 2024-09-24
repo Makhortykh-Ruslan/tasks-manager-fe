@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
@@ -9,6 +9,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [CommonModule, MatCheckboxModule],
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxComponent {
   @Input() label = '';

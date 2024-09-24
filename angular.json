@@ -10,7 +10,8 @@
           "style": "scss",
           "standalone": true,
           "skipImport": true,
-          "skipTests": true
+          "skipTests": true,
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:directive": {
           "standalone": true,

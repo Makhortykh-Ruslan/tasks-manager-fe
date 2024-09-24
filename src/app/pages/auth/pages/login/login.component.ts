@@ -1,5 +1,10 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { AbstractForm } from '@core/abstract/abstract-form';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
+import { AbstractErrorMessages } from '@core/abstract/abstract-error-messages';
 import { CheckboxComponent } from '@core/components/checkbox/checkbox.component';
 import { InputComponent } from '@core/components/input/input.component';
 import { LogoComponent } from '@core/components/logo/logo.component';
@@ -17,6 +22,7 @@ import { LoginService } from '../../services/login.service';
   standalone: true,
   styleUrls: ['./login.component.scss'],
   providers: [LoginService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     InputComponent,
     LogoComponent,
@@ -25,7 +31,7 @@ import { LoginService } from '../../services/login.service';
     ControlConverterPipe,
   ],
 })
-export class LoginComponent extends AbstractForm implements OnInit {
+export class LoginComponent extends AbstractErrorMessages implements OnInit {
   public controlNames = controlNames;
   public placeholders = placeholders;
   public labels = labels;
@@ -37,13 +43,11 @@ export class LoginComponent extends AbstractForm implements OnInit {
   }
 
   public handleSubmit(): void {
-    console.log('hello', this.formGroup.getRawValue());
+    // console.log('hello', this.formGroup.getRawValue());
   }
 
   private initData(): void {
     this.loginService.initLoginFormGroup();
     this.formGroup = this.loginService.getLoginFormGroup();
-
-    console.log('hello', this.formGroup.get(controlNames.PASSWORD)?.errors);
   }
 }

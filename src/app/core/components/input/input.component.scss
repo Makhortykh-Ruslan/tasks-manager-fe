@@ -1,6 +1,10 @@
 @import "src/assets/styles/mixins";
 @import "src/assets/styles/vars";
 
+.component {
+  position: relative;
+}
+
 .component-label {
   @include font-base(14px, 500, normal, normal);
 }
@@ -53,5 +57,17 @@
     border: 1px solid $error;
     transition: 0.3s ease-in-out;
   }
+}
+
+.component-error {
+  @include font-base(14px, 400, normal, normal);
+
+  position: absolute;
+  color: $red;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: $white;
 }
 

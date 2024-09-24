@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TLabels } from '@core/enums/labels';
 import { TPlaceholder } from '@core/enums/placeholder';
@@ -12,6 +12,7 @@ import { tmIcon } from '@icons/tm-icons';
   imports: [CommonModule, TmIconModule, ReactiveFormsModule],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
   @Input() type = 'text';
