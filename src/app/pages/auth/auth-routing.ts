@@ -1,5 +1,8 @@
+import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
+import { AuthState } from '@core/store/auth-store/auth.state';
+import { NgxsModule } from '@ngxs/store';
 
 import { AuthComponent } from './auth.component';
 
@@ -8,6 +11,7 @@ const children: Routes = [
     path: appRoutes.login.routerPath,
     loadComponent: () =>
       import('./pages/login/login.component').then((c) => c.LoginComponent),
+    providers: [importProvidersFrom(NgxsModule.forFeature([AuthState]))],
   },
   {
     path: appRoutes.registration.routerPath,

@@ -13,15 +13,18 @@ import { controlNames } from '@core/enums';
 import { labels } from '@core/enums/labels';
 import { placeholders } from '@core/enums/placeholder';
 import { ControlConverterPipe } from '@core/pipes/control-converter.pipe';
+import { AuthService } from '@core/services/auth.service';
+import { NgOnDestroy } from '@core/services/ng-on-destroy.service';
+import { take, takeUntil } from 'rxjs';
 
-import { LoginService } from '../../services/login.service';
+import { LoginFormGroupService } from '../../services/login-form-group.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   standalone: true,
   styleUrls: ['./login.component.scss'],
-  providers: [LoginService],
+  providers: [LoginFormGroupService, NgOnDestroy, AuthService],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     InputComponent,
@@ -36,14 +39,19 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
   public placeholders = placeholders;
   public labels = labels;
 
-  private loginService = inject(LoginService);
+  private loginService = inject(LoginFormGroupService);
+  private authService = inject(AuthService);
+  private ngOnDestroy$ = inject(NgOnDestroy);
 
   public ngOnInit(): void {
     this.initData();
   }
 
   public handleSubmit(): void {
-    // console.log('hello', this.formGroup.getRawValue());
+    this.authService
+      .login(this.formGroup.getRawValue())
+      .pipe(take(1), takeUntil(this.ngOnDestroy$))
+      .subscribe();
   }
 
   private initData(): void {

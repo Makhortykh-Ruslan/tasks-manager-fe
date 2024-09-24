@@ -4,7 +4,7 @@ import { EMAIL_REGEXP, PASSWORD_REGEXP } from '@core/constants/reg-exp';
 import { controlNames } from '@core/enums';
 
 @Injectable()
-export class LoginService {
+export class LoginFormGroupService {
   private loginFormGroup!: FormGroup;
 
   private fb = inject(FormBuilder);
