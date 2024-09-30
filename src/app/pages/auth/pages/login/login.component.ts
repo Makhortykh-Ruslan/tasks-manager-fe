@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { AbstractErrorMessages } from '@core/abstract/abstract-error-messages';
 import { CheckboxComponent } from '@core/components/checkbox/checkbox.component';
 import { InputComponent } from '@core/components/input/input.component';
