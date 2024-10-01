@@ -1,4 +1,3 @@
-const typescriptParser = require('@typescript-eslint/parser');
 const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
 const angularEslintPlugin = require('@angular-eslint/eslint-plugin');
 const angularEslintTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
@@ -7,11 +6,10 @@ const prettierPlugin = require('eslint-plugin-prettier');
 module.exports = [
   {
     files: ['**/*.ts'],
-    ignores: ['projects/**/*'],
     languageOptions: {
-      parser: typescriptParser,
+      parser: require('@typescript-eslint/parser'),
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: './tsconfig.json',
         createDefaultProgram: true,
       },
     },
@@ -21,6 +19,7 @@ module.exports = [
       'prettier': prettierPlugin,
     },
     rules: {
+      'prettier/prettier': ['error'],
       '@angular-eslint/component-selector': [
         'error',
         {
@@ -42,16 +41,7 @@ module.exports = [
       '@typescript-eslint/no-use-before-define': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       'no-console': 'error',
-      'prettier/prettier': ['error', { endOfLine: 'auto' }],
-      'spaced-comment': [
-        'error',
-        'always',
-        {
-          line: {
-            markers: ['/'],
-          },
-        },
-      ],
+      'max-len': ['error', { code: 80 }],
     },
   },
   {
@@ -62,7 +52,6 @@ module.exports = [
     rules: {
       'max-len': ['error', { code: 140 }],
       'spaced-comment': 'off',
-      '@angular-eslint/template/require-section-heading': 'off',
     },
   },
   {

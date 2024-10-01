@@ -9,14 +9,13 @@ const routes = (): Routes => {
       path: appRoutes.icons.routerPath,
       loadComponent: () =>
         import('../tm-icons/icons-preview/icons-preview.component').then(
-          (c) => c.IconsPreviewComponent,
+          c => c.IconsPreviewComponent
         ),
     },
     {
       // path: appRoutes.auth.routerPath,
       path: '',
-      loadChildren: () =>
-        import('./pages/auth/auth-routing').then((r) => r.AUTH_ROUTES),
+      loadChildren: () => import('./pages/auth/auth-routing').then(r => r.AUTH_ROUTES),
     },
     // {
     //   path: '',

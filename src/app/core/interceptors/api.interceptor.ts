@@ -8,14 +8,11 @@ import { environment } from '../../../environments/environment';
 export class ApiInterceptor implements HttpInterceptor {
   constructor() {}
 
-  public intercept<T>(
-    req: HttpRequest<T>,
-    next: HttpHandler,
-  ): Observable<HttpEvent<T>> {
+  public intercept<T>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpEvent<T>> {
     return next.handle(
       req.clone({
         url: req.url.replace('api', environment.domain_url),
-      }),
+      })
     );
   }
 }

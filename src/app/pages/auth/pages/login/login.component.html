@@ -5,11 +5,9 @@
     </div>
     <h2 class="title mb-12">Log in to your account</h2>
     <p class="sub-title mb-32">Welcome back! Please enter your details</p>
-    <app-input
-      class="mb-20"
+    <app-input class="mb-20"
       [label]="labels.EMAIL"
-      [placeholder]="placeholders.EMAIL"
-      [formControl]="formGroup.get(controlNames.EMAIL) | controlConverter"
+      [placeholder]="placeholders.EMAIL" [formControl]="formGroup.get(controlNames.EMAIL) | controlConverter"
       [error]="emailErrorMessage"
     ></app-input>
 
