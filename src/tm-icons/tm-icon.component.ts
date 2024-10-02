@@ -13,17 +13,23 @@ import { TmIconsService } from './tm-icons.service';
 
 @Component({
   selector: 'app-icon',
-  template: `<ng-content></ng-content>`,
-  styles: [':host::ng-deep svg{display: flex; justify-content: center; align-items: center}'],
+  template: `
+    <ng-content></ng-content>
+  `,
+  styles: [
+    ':host::ng-deep svg{display: flex; justify-content: center; align-items: center}',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TmIconComponent {
   private svgIcon: SVGElement | undefined;
 
   constructor(
-    @Optional() @Inject(DOCUMENT) private document: Document,
+    @Optional()
+    @Inject(DOCUMENT)
+    private document: Document,
     public element: ElementRef,
-    private tmIconsService: TmIconsService
+    private tmIconsService: TmIconsService,
   ) {}
 
   @Input()

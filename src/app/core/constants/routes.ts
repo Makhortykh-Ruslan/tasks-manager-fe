@@ -11,9 +11,17 @@ export const appRoutes: Record<
     fullPath?: string;
   }
 > = {
-  auth: { routerPath: 'auth' },
-  login: { routerPath: 'login' },
-  registration: { routerPath: 'registration' },
+  auth: {
+    routerPath: 'auth',
+  },
+  login: {
+    routerPath: 'login',
+  },
+  registration: {
+    routerPath: 'registration',
+  },
 
-  icons: { routerPath: 'icons' },
+  icons: {
+    routerPath: 'icons',
+  },
 };

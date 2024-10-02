@@ -13,5 +13,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class CheckboxComponent {
   @Input() label = '';
-  @Input() checkBoxControl: FormControl = new FormControl(false);
+  @Input()
+  checkBoxControl: FormControl = new FormControl(false);
 }

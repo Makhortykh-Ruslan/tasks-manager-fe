@@ -5,6 +5,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthService extends AbstractHttpRequests {
   public login(model: any): Observable<any> {
-    return this.httpPostRequest(`api/login`, model);
+    return this.httpPostRequest(`api/auth/login`, model);
   }
 }

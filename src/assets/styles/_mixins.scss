@@ -1,4 +1,4 @@
-@import "vars";
+@import 'vars';
 
 @mixin font-base(
   $size: $font-size-base,
@@ -12,7 +12,8 @@
 
 @mixin svg-stroke($color) {
   &::ng-deep svg {
-    & path, & circle {
+    & path,
+    & circle {
       stroke: $color;
       fill: none;
     }
@@ -21,7 +22,8 @@
 
 @mixin svg-fill($color) {
   &::ng-deep svg {
-    & path, & circle {
+    & path,
+    & circle {
       fill: $color;
       stroke: none;
     }
@@ -30,7 +32,8 @@
 
 @mixin svg-fill-without-deep($color) {
   & svg {
-    & path, & circle {
+    & path,
+    & circle {
       fill: $color;
       stroke: none;
     }
@@ -39,7 +42,8 @@
 
 @mixin svg-stroke-without-deep($color) {
   & svg {
-    & path, & circle {
+    & path,
+    & circle {
       fill: none;
       stroke: $color;
     }

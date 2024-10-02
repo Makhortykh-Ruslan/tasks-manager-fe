@@ -2,10 +2,13 @@ const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
 const angularEslintPlugin = require('@angular-eslint/eslint-plugin');
 const angularEslintTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
 const prettierPlugin = require('eslint-plugin-prettier');
+const prettierConfig = require('eslint-config-prettier');
+const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
 
 module.exports = [
   {
     files: ['**/*.ts'],
+    ignores: ['projects/**/*'],
     languageOptions: {
       parser: require('@typescript-eslint/parser'),
       parserOptions: {
@@ -16,10 +19,13 @@ module.exports = [
     plugins: {
       '@typescript-eslint': typescriptPlugin,
       '@angular-eslint': angularEslintPlugin,
-      'prettier': prettierPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': ['error'],
+      'prettier/prettier': [
+        'error',
+        { singleQuote: true, trailingComma: 'all', printWidth: 90 },
+      ],
       '@angular-eslint/component-selector': [
         'error',
         {
@@ -41,17 +47,32 @@ module.exports = [
       '@typescript-eslint/no-use-before-define': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       'no-console': 'error',
-      'max-len': ['error', { code: 80 }],
+      'spaced-comment': [
+        'error',
+        'always',
+        {
+          line: { markers: ['/'] },
+        },
+      ],
+      'no-multiple-empty-lines': 'error',
+      'prefer-const': 'error',
+      'max-len': ['error', { code: 90, ignoreComments: true }],
+      ...prettierConfig.rules,
     },
   },
   {
     files: ['**/*.html'],
+    languageOptions: {
+      parser: require('@angular-eslint/template-parser'),
+    },
     plugins: {
       '@angular-eslint/template': angularEslintTemplatePlugin,
+      'prettier': prettierPlugin,
     },
     rules: {
-      'max-len': ['error', { code: 140 }],
-      'spaced-comment': 'off',
+      'prettier/prettier': ['error', { printWidth: 90 }],
+      '@angular-eslint/template/eqeqeq': 'error',
+      '@angular-eslint/template/no-heading-content': 'off',
     },
   },
   {
@@ -72,16 +93,23 @@ module.exports = [
     rules: {
       '@typescript-eslint/explicit-member-accessibility': [
         'off',
-        {
-          accessibility: 'explicit',
-        },
+        { accessibility: 'explicit' },
       ],
       '@typescript-eslint/explicit-function-return-type': [
         'off',
-        {
-          accessibility: 'explicit',
-        },
+        { accessibility: 'explicit' },
       ],
+    },
+  },
+  {
+    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.html'],
+    plugins: {
+      'jsx-a11y': jsxA11yPlugin,
+      prettier: prettierPlugin,
+    },
+    rules: {
+      'jsx-a11y/heading-has-content': 'off',
+      'jsx-a11y/section-has-heading': 'off',
     },
   },
 ];

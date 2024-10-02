@@ -10,7 +10,10 @@ export class AbstractHttpRequests {
   public httpGetRequest<T>(url: string, params: Params = {}): Observable<T> {
     const headers = this.getHttpHeaders();
 
-    return this.http.get<T>(url, { headers, params });
+    return this.http.get<T>(url, {
+      headers,
+      params,
+    });
   }
 
   public httpPostRequest<T, U>(
@@ -18,7 +21,7 @@ export class AbstractHttpRequests {
     body: T,
     isTracking = false,
     params: Params = {},
-    options = {}
+    options = {},
   ): Observable<U> {
     const headers = this.getHttpHeaders();
 
@@ -42,7 +45,7 @@ export class AbstractHttpRequests {
   public getHttpHeaders(): HttpHeaders {
     return new HttpHeaders().set(
       'Authorization',
-      `Bearer ${localStorage.getItem(LocalStorageKeys.ACCESS_TOKEN) || ''}`
+      `Bearer ${localStorage.getItem(LocalStorageKeys.ACCESS_TOKEN) || ''}`,
     );
   }
 }

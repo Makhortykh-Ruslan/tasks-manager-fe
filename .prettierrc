@@ -1,1 +1,1 @@
-{ "singleQuote": true, "trailingComma": "all", "endOfLine": "auto" }
+{ "singleQuote": true, "printWidth": 90, "trailingComma": "all", "endOfLine": "auto", "htmlWhitespaceSensitivity": "ignore" }

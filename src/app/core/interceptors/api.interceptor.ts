@@ -1,4 +1,9 @@
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,7 +17,7 @@ export class ApiInterceptor implements HttpInterceptor {
     return next.handle(
       req.clone({
         url: req.url.replace('api', environment.domain_url),
-      })
+      }),
     );
   }
 }

@@ -17,9 +17,14 @@ import { tmIcon } from '@icons/tm-icons';
 export class InputComponent {
   @Input() type = 'text';
   @Input() error = '';
-  @Input() isRequired = '';
-  @Input() rightIcon: tmIcon | null = null;
-  @Input() label!: TLabels;
-  @Input() placeholder!: TPlaceholder;
-  @Input() formControl: FormControl = new FormControl(null);
+  @Input()
+  isRequired = '';
+  @Input()
+  rightIcon: tmIcon | null = null;
+  @Input()
+  label!: TLabels;
+  @Input()
+  placeholder!: TPlaceholder;
+  @Input()
+  formControl: FormControl = new FormControl(null);
 }

@@ -6,7 +6,8 @@ import { TButtonColor } from '@core/types/t-button';
   standalone: true,
 })
 export class ButtonDirective implements OnInit {
-  @Input() color: TButtonColor = 'blue';
+  @Input()
+  color: TButtonColor = 'blue';
 
   private renderer2 = inject(Renderer2);
   private elementRef = inject(ElementRef);

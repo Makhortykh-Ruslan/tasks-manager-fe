@@ -3,7 +3,9 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
-  template: ` <router-outlet></router-outlet>`,
+  template: `
+    <router-outlet></router-outlet>
+  `,
   imports: [RouterOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
