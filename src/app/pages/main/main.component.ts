@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 @Component({
   selector: 'app-main',
@@ -6,5 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   styleUrls: ['./main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet, SideBarComponent],
 })
 export class MainComponent {}

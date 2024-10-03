@@ -30,4 +30,12 @@ export class AbstractErrorMessages {
           ? 'Password must contain at least 8 characters, 1 capital letter, 1 small letter and at least 1 number and special symbol.'
           : controlErrors?.[controlNames.PASSWORD];
   }
+
+  public get userNameErrorMessage(): string {
+    const controlErrors = this.formGroup.get(controlNames.USER_NAME)?.errors;
+
+    return controlErrors?.['required']
+      ? this.defaultRequiredMessage
+      : controlErrors?.[controlNames.USER_NAME];
+  }
 }

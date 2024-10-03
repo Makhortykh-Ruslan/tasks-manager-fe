@@ -24,7 +24,7 @@ module.exports = [
     rules: {
       'prettier/prettier': [
         'error',
-        { singleQuote: true, trailingComma: 'all', printWidth: 90 },
+        { singleQuote: true, trailingComma: 'all', printWidth: 80 },
       ],
       '@angular-eslint/component-selector': [
         'error',
@@ -56,7 +56,7 @@ module.exports = [
       ],
       'no-multiple-empty-lines': 'error',
       'prefer-const': 'error',
-      'max-len': ['error', { code: 90, ignoreComments: true }],
+      'max-len': ['error', { code: 80, ignoreComments: true }],
       ...prettierConfig.rules,
     },
   },
@@ -70,7 +70,7 @@ module.exports = [
       'prettier': prettierPlugin,
     },
     rules: {
-      'prettier/prettier': ['error', { printWidth: 90 }],
+      'prettier/prettier': ['error', { printWidth: 80 }],
       '@angular-eslint/template/eqeqeq': 'error',
       '@angular-eslint/template/no-heading-content': 'off',
     },

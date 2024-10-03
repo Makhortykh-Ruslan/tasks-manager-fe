@@ -1,0 +1,18 @@
+<section class="component">
+  <app-logo></app-logo>
+  <nav class="component-nav">
+    <ul class="component-nav-list">
+      @for (item of sideBarItemsState(); track item.id) {
+        <li
+          class="elem"
+          [routerLink]="item.path | navBar: currentRole"
+          [routerLinkActive]="['active']"
+        >
+          <app-icon class="icon" [name]="item.icon"></app-icon>
+          <a class="link">{{ item.title }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+  <footer class="footer">hello</footer>
+</section>

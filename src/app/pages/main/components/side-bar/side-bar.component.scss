@@ -1,0 +1,60 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/vars';
+
+.component {
+  padding: 32px 20px 32px 24px;
+  position: fixed;
+  height: 100%;
+  border-right: 1px solid $grey-3;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  &-nav {
+    margin-top: 24px;
+
+    &-list {
+      list-style-type: none;
+      display: grid;
+      gap: 8px;
+
+      & .elem {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 12px;
+        transition: 0.1s ease;
+        cursor: pointer;
+
+        & .link {
+          @include font-base(16px, 500, normal, normal);
+
+          color: $black;
+          text-decoration: none;
+        }
+
+        & .icon {
+          @include svg-stroke($black);
+          @include svg-size(24px, 24px);
+        }
+
+        &:hover {
+          background-color: $blue-3;
+          transition: 0.2s ease-in-out;
+          border-radius: 6px;
+        }
+
+        &.active {
+          transition: 0.2s ease-in-out;
+
+          & .link {
+            color: $blue;
+          }
+
+          & .icon {
+            @include svg-stroke($blue);
+          }
+        }
+      }
+    }
+  }
+}

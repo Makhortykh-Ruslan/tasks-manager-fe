@@ -1,5 +1,50 @@
-<section>
-  <div></div>
+<section class="page">
+  <app-loader *ngIf="isShowLoading()" [isOverlay]="true"></app-loader>
 
-  <form action="">csdcsdcs</form>
+  <main class="page-main">
+    <div class="logo mb-64">
+      <app-logo></app-logo>
+    </div>
+    <h2 class="title mb-12">Create an account</h2>
+    <p class="sub-title mb-32">Start your 30-day free trial</p>
+
+    <app-input
+      class="mb-20"
+      [label]="labels.NAME"
+      [placeholder]="placeholders.NAME"
+      [formControl]="formGroup.get(controlNames.USER_NAME) | controlConverter"
+      [error]="userNameErrorMessage"
+    ></app-input>
+
+    <app-input
+      class="mb-20"
+      [label]="labels.EMAIL"
+      [placeholder]="placeholders.EMAIL"
+      [formControl]="formGroup.get(controlNames.EMAIL) | controlConverter"
+      [error]="emailErrorMessage"
+    ></app-input>
+
+    <app-input
+      class="mb-24"
+      [type]="'password'"
+      [label]="labels.PASSWORD"
+      [placeholder]="placeholders.PASSWORD"
+      [formControl]="formGroup.get(controlNames.PASSWORD) | controlConverter"
+      [error]="passwordErrorMessage"
+    ></app-input>
+
+    <button
+      [disabled]="formGroup.invalid"
+      appButton
+      class="mb-32"
+      (click)="handleSubmit()"
+    >
+      Get started
+    </button>
+
+    <div class="flex center">
+      <p class="text">Already have an account?</p>
+      <p class="text blue" (click)="handleRedirectToLogIn()">Log in</p>
+    </div>
+  </main>
 </section>

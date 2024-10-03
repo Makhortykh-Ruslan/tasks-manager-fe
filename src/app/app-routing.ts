@@ -2,6 +2,7 @@ import { provideRouter, Routes } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 
 import { environment } from '../environments/environment';
+import { SessionGuard } from '@core/guards/auth.guard';
 
 const routes = (): Routes => {
   const res: Routes = [
@@ -13,15 +14,16 @@ const routes = (): Routes => {
         ),
     },
     {
-      // path: appRoutes.auth.routerPath,
-      path: '',
-      loadChildren: () => import('./pages/auth/auth-routing').then((r) => r.AUTH_ROUTES),
+      path: appRoutes.auth.routerPath,
+      loadChildren: () =>
+        import('./pages/auth/auth-routing').then((r) => r.AUTH_ROUTES),
     },
-    // {
-    //   path: '',
-    //   loadComponent: () =>
-    //     import('./pages/main/main.component').then((c) => c.MainComponent),
-    // },
+    {
+      path: '',
+      loadChildren: () =>
+        import('./pages/main/main-routing').then((r) => r.MAIN_ROUTES),
+      canActivate: [SessionGuard],
+    },
     {
       path: '**',
       redirectTo: '',

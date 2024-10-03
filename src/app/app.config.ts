@@ -8,13 +8,15 @@ import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment';
 
 import { appRoutingProviders } from './app-routing';
+import { ErrorInterceptor } from '@core/interceptors/error.interceptor';
+import { UserState } from '@core/store/user-store/user.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     ...appRoutingProviders,
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(
-      NgxsModule.forRoot([], {
+      NgxsModule.forRoot([UserState], {
         developmentMode: !environment.production,
       }),
     ),
@@ -26,6 +28,11 @@ export const appConfig: ApplicationConfig = {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true,
     },
   ],

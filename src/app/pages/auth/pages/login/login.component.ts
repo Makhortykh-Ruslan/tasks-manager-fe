@@ -16,20 +16,22 @@ import { placeholders } from '@core/enums/placeholder';
 import { ControlConverterPipe } from '@core/pipes/control-converter.pipe';
 import { AuthService } from '@core/services/auth.service';
 import { NgOnDestroy } from '@core/services/ng-on-destroy.service';
-import { finalize, take, takeUntil } from 'rxjs';
+import { finalize, take, takeUntil, tap } from 'rxjs';
 
-import { LoginFormGroupService } from '../../services/login-form-group.service';
+import { AuthFormGroupService } from '../../services/auth-form-group.service';
 import { LoaderComponent } from '@core/components/loader/loader.component';
 import { NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
+import { AuthSpace } from '@core/store/auth-store/auth.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   standalone: true,
   styleUrls: ['./login.component.scss'],
-  providers: [LoginFormGroupService, NgOnDestroy, AuthService],
+  providers: [AuthFormGroupService, NgOnDestroy, AuthService],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     InputComponent,
@@ -48,10 +50,12 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
   public placeholders = placeholders;
   public labels = labels;
 
-  private loginService = inject(LoginFormGroupService, { self: true });
+  private authFormGroupService = inject(AuthFormGroupService, { self: true });
   private authService = inject(AuthService, { self: true });
   private ngOnDestroy$ = inject(NgOnDestroy, { self: true });
   private router = inject(Router);
+  private activatedRoute = inject(ActivatedRoute);
+  private store = inject(Store);
 
   public ngOnInit(): void {
     this.initData();
@@ -64,6 +68,10 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
       .login(this.formGroup.getRawValue())
       .pipe(
         take(1),
+        tap((response) => {
+          this.store.dispatch(new AuthSpace.SetAccessToken(response.model));
+          this.router.navigate(['/']);
+        }),
         finalize(() => this.isShowLoading.set(false)),
         takeUntil(this.ngOnDestroy$),
       )
@@ -71,11 +79,13 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
   }
 
   public handleRedirectToSingUp(): void {
-    this.router.navigate([appRoutes.registration.routerPath]);
+    this.router.navigate([appRoutes.registration.routerPath], {
+      relativeTo: this.activatedRoute.parent,
+    });
   }
 
   private initData(): void {
-    this.loginService.initLoginFormGroup();
-    this.formGroup = this.loginService.getLoginFormGroup();
+    this.authFormGroupService.initLoginFormGroup();
+    this.formGroup = this.authFormGroupService.getLoginFormGroup();
   }
 }
