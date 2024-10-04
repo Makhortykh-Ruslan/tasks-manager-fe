@@ -1,0 +1,38 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+@mixin tm-modal($width: 500px) {
+  .mat-mdc-dialog-surface {
+    border-radius: 10px;
+  }
+
+  .modal {
+    padding: 24px;
+    min-width: $width;
+    max-width: $width;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .title {
+      @include font-base(24px, 700, 38px, normal);
+
+      color: $black;
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    & .btn {
+      width: 160px;
+      height: 36px;
+    }
+  }
+}

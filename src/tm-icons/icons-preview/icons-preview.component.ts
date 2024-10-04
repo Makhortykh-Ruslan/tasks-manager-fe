@@ -24,7 +24,9 @@ export class IconsPreviewComponent implements OnInit {
     this.subscription = this.searchControl.valueChanges
       .pipe(distinctUntilChanged())
       .subscribe((val: string) => {
-        this.icons = completeIconSet.filter((el: TmIcon) => el.name.includes(val));
+        this.icons = completeIconSet.filter((el: TmIcon) =>
+          el.name.includes(val),
+        );
       });
   }
 }

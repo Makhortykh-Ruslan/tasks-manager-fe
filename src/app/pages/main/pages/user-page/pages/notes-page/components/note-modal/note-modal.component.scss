@@ -1,0 +1,7 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+@import 'assets/styles/components/modal';
+
+::ng-deep .note-modal {
+  @include tm-modal(850px);
+}

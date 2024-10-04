@@ -1,0 +1,20 @@
+<section class="modal">
+  <header class="modal-header">
+    <h3 class="title">Add a note</h3>
+    <app-icon [name]="'push_pin'"></app-icon>
+  </header>
+  <main class="modal-main">
+    <p>Enter below your necessary details</p>
+  </main>
+  <footer class="modal-footer">
+    <button
+      class="btn"
+      [color]="'blue-border'"
+      appButton
+      (click)="handleClose()"
+    >
+      Cancel
+    </button>
+    <button class="btn" appButton>Add note</button>
+  </footer>
+</section>

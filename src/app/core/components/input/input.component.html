@@ -6,6 +6,11 @@
   </label>
 
   <div class="component-input" [class.error]="formControl.errors">
+    <app-icon
+      class="icon left"
+      *ngIf="leftIconName() as iconName"
+      [name]="iconName"
+    ></app-icon>
     <input
       id="tm-input"
       class="input"
@@ -13,7 +18,11 @@
       [formControl]="formControl"
       [placeholder]="placeholder"
     />
-    <app-icon class="icon" *ngIf="rightIcon" [name]="rightIcon"></app-icon>
+    <app-icon
+      class="icon"
+      *ngIf="rightIconName() as iconName"
+      [name]="iconName"
+    ></app-icon>
   </div>
 
   <span *ngIf="error" class="component-error">

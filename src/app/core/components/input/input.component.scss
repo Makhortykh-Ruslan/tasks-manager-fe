@@ -23,6 +23,10 @@
     @include svg-stroke($gray-light);
 
     transition: 0.3s ease-in-out;
+
+    &.left {
+      padding: 0 0 0 16px;
+    }
   }
 
   &:focus-within {
@@ -44,7 +48,7 @@
     height: 100%;
     border: none;
     outline: none;
-    padding: 8px 16px;
+    padding: 8px;
 
     &::placeholder {
       @include font-base(16px, 400, normal, normal);

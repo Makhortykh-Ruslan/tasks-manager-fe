@@ -5,8 +5,8 @@
       @for (item of sideBarItemsState(); track item.id) {
         <li
           class="elem"
-          [routerLink]="item.path | navBar: currentRole"
           [routerLinkActive]="['active']"
+          [routerLink]="item.path | navBar: currentRole"
         >
           <app-icon class="icon" [name]="item.icon"></app-icon>
           <a class="link">{{ item.title }}</a>

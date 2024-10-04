@@ -22,7 +22,7 @@ import { TmIconsService } from './tm-icons.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TmIconComponent {
-  private svgIcon: SVGElement | undefined;
+  private svgIcon!: SVGElement;
 
   constructor(
     @Optional()
@@ -33,11 +33,12 @@ export class TmIconComponent {
   ) {}
 
   @Input()
-  set name(iconName: tmIcon) {
+  set name(iconName: tmIcon | null) {
     if (this.svgIcon) {
       this.element.nativeElement.removeChild(this.svgIcon);
     }
-    const svgData = this.tmIconsService.getIcon(iconName);
+
+    const svgData = this.tmIconsService.getIcon(iconName || '');
 
     if (!svgData) {
       return;

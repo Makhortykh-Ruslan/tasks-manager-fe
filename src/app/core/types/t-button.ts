@@ -1,1 +1,1 @@
-export type TButtonColor = 'blue';
+export type TButtonColor = 'blue' | 'blue-border';

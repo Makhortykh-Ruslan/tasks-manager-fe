@@ -1,1 +1,17 @@
-<p>notes-page works!</p>
+<section class="page">
+  <header class="header mb-40">
+    <div>
+      <h2 class="title mb-4">All notes</h2>
+      <p class="sub-title">View your notes on this board</p>
+    </div>
+    <button class="button" appButton (click)="onOpenNoteModal()">
+      <app-icon [name]="'plus'"></app-icon>
+      Add note
+    </button>
+  </header>
+  <app-input
+    [leftIconName]="'magnifying_glass'"
+    [placeholder]="placeholders.SEARCH"
+  ></app-input>
+  <main></main>
+</section>

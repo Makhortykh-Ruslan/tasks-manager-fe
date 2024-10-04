@@ -1,0 +1,29 @@
+@import 'assets/styles/components/page';
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+.page {
+  @include page-wrapper();
+}
+
+.header {
+  display: flex;
+
+  & .title {
+    @include font-base(30px, 500, normal, normal);
+
+    color: $black;
+  }
+
+  & .sub-title {
+    @include font-base(16px, 400, normal, normal);
+
+    color: $grey-4;
+  }
+
+  & .button {
+    margin-left: auto;
+    width: 120px;
+    height: 40px;
+  }
+}
