@@ -7,6 +7,10 @@
 
 .component-label {
   @include font-base(14px, 500, normal, normal);
+
+  & .required {
+    color: $red;
+  }
 }
 
 .component-input {

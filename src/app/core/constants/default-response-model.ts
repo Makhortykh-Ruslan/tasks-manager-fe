@@ -1,6 +1,6 @@
 import { ResponseModel } from '@core/models';
 
-export const DEFAULT_RESPONSE_MODEL: ResponseModel<null> = {
-  model: null,
+export const DEFAULT_RESPONSE_MODEL: ResponseModel<[]> = {
+  model: [],
   messages: '',
 };

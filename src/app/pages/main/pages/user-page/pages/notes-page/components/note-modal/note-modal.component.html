@@ -4,7 +4,22 @@
     <app-icon [name]="'push_pin'"></app-icon>
   </header>
   <main class="modal-main">
-    <p>Enter below your necessary details</p>
+    <p class="title">Enter below your necessary details</p>
+
+    <app-input
+      [isRequired]="true"
+      [label]="LABELS.NOTE_NAME"
+      [placeholder]="PLACEHOLDER.ENTER_NOTE_NAME"
+      [formControl]="formGroup.get(CONTROL_NAME.TITLE) | controlConverter"
+    ></app-input>
+
+    <app-textarea
+      [isRequired]="true"
+      [label]="LABELS.DESCRIPTION"
+      [placeholder]="PLACEHOLDER.ENTER_DESCRIPTION"
+      [height]="200"
+      [formControl]="formGroup.get(CONTROL_NAME.DESCRIPTION) | controlConverter"
+    ></app-textarea>
   </main>
   <footer class="modal-footer">
     <button
@@ -15,6 +30,13 @@
     >
       Cancel
     </button>
-    <button class="btn" appButton>Add note</button>
+    <button
+      class="btn"
+      [disabled]="formGroup.invalid"
+      appButton
+      (click)="handleAddNote()"
+    >
+      Add note
+    </button>
   </footer>
 </section>

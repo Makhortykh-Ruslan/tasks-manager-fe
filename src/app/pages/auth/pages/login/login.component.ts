@@ -15,8 +15,7 @@ import { labels } from '@core/enums/labels';
 import { placeholders } from '@core/enums/placeholder';
 import { ControlConverterPipe } from '@core/pipes/control-converter.pipe';
 import { AuthService } from '@core/services/auth.service';
-import { NgOnDestroy } from '@core/services/ng-on-destroy.service';
-import { finalize, take, takeUntil, tap } from 'rxjs';
+import { finalize, take, tap } from 'rxjs';
 
 import { AuthFormGroupService } from '../../services/auth-form-group.service';
 import { LoaderComponent } from '@core/components/loader/loader.component';
@@ -25,13 +24,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 import { AuthSpace } from '@core/store/auth-store/auth.actions';
 import { Store } from '@ngxs/store';
+import { DestroyService } from '@core/services';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   standalone: true,
   styleUrls: ['./login.component.scss'],
-  providers: [AuthFormGroupService, NgOnDestroy, AuthService],
+  providers: [AuthFormGroupService, DestroyService, AuthService],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     InputComponent,
@@ -52,7 +52,6 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
 
   private authFormGroupService = inject(AuthFormGroupService, { self: true });
   private authService = inject(AuthService, { self: true });
-  private ngOnDestroy$ = inject(NgOnDestroy, { self: true });
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
   private store = inject(Store);
@@ -73,7 +72,6 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
           this.router.navigate(['/']);
         }),
         finalize(() => this.isShowLoading.set(false)),
-        takeUntil(this.ngOnDestroy$),
       )
       .subscribe();
   }

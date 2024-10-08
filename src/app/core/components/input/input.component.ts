@@ -24,7 +24,7 @@ export class InputComponent {
   public rightIconName = input<tmIcon | null>(null);
   @Input() type = 'text';
   @Input() error = '';
-  @Input() isRequired = '';
+  @Input() isRequired = false;
   @Input() label!: TLabels;
   @Input() placeholder!: TPlaceholder;
   @Input() formControl: FormControl = new FormControl(null);

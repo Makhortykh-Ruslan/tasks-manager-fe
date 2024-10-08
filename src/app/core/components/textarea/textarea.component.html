@@ -1,0 +1,13 @@
+<div class="component">
+  <label *ngIf="label() as label" [for]="name" class="component-label">
+    {{ label }}
+    <span class="required" *ngIf="isRequired()">*</span>
+  </label>
+  <textarea
+    [formControl]="formControl()"
+    [placeholder]="placeholder()"
+    class="component-textarea"
+    [name]="name"
+    [style.height]="heightValue"
+  ></textarea>
+</div>

@@ -1,4 +1,6 @@
 <section class="page">
+  <app-loader *ngIf="isShowLoading()" [isOverlay]="true"></app-loader>
+
   <header class="header mb-40">
     <div>
       <h2 class="title mb-4">All notes</h2>
@@ -13,5 +15,13 @@
     [leftIconName]="'magnifying_glass'"
     [placeholder]="placeholders.SEARCH"
   ></app-input>
-  <main></main>
+  <main>
+    <ng-container *ngIf="notes() as notes; else emptyTemp">
+      @for (note of notes.model; track note._id) {
+        <div>{{ note.title }}</div>
+      }
+    </ng-container>
+
+    <ng-template #emptyTemp></ng-template>
+  </main>
 </section>

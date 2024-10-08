@@ -1,0 +1,41 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/vars';
+@import 'assets/styles/extends';
+
+.component {
+  display: grid;
+  gap: 6px;
+}
+
+.component-label {
+  @include font-base(14px, 500, normal, normal);
+
+  color: $gray;
+
+  & .required {
+    color: $red;
+  }
+}
+
+.component-textarea {
+  @include font-base(16px, 400, normal, normal);
+  @extend .scroll-bar;
+
+  color: $black;
+  padding: 8px 16px;
+  border: 1px solid $gray-light;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+
+  &:focus-within {
+    border: 1px solid $gray;
+    transition: 0.3s ease-in-out;
+  }
+
+  &::placeholder {
+    @include font-base(16px, 400, normal, normal);
+
+    color: $gray-light;
+  }
+}

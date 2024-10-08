@@ -4,6 +4,8 @@
 
 .page {
   @include page-wrapper();
+
+  position: relative;
 }
 
 .header {

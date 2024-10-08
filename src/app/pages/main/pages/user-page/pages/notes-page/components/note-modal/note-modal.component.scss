@@ -4,4 +4,15 @@
 
 ::ng-deep .note-modal {
   @include tm-modal(850px);
+
+  .modal-main {
+    display: grid;
+    gap: 32px;
+  }
+
+  .title {
+    @include font-base(14px, 400, normal, normal, $fixel-text);
+
+    color: $grey-4;
+  }
 }

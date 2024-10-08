@@ -16,17 +16,16 @@ import { controlNames, labels, placeholders } from '@core/enums';
 import { AbstractErrorMessages } from '@core/abstract';
 import { AuthFormGroupService } from '../../services/auth-form-group.service';
 import { AuthService } from '@core/services/auth.service';
-import { NgOnDestroy } from '@core/services/ng-on-destroy.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
-import { finalize, take, takeUntil, tap } from 'rxjs';
+import { finalize, take, tap } from 'rxjs';
 import { Store } from '@ngxs/store';
 import { AuthSpace } from '@core/store/auth-store/auth.actions';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  providers: [AuthFormGroupService, NgOnDestroy, AuthService],
+  providers: [AuthFormGroupService, AuthService],
   imports: [
     CommonModule,
     ButtonDirective,
@@ -54,9 +53,6 @@ export class RegistrationComponent
   private authService = inject(AuthService, {
     self: true,
   });
-  private ngOnDestroy$ = inject(NgOnDestroy, {
-    self: true,
-  });
   private router = inject(Router);
   private store = inject(Store);
   private activatedRoute = inject(ActivatedRoute);
@@ -77,7 +73,6 @@ export class RegistrationComponent
           this.router.navigate(['']);
         }),
         finalize(() => this.isShowLoading.set(false)),
-        takeUntil(this.ngOnDestroy$),
       )
       .subscribe();
   }
