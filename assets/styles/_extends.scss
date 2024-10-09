@@ -1,0 +1,17 @@
+@import 'assets/styles/vars';
+
+.scroll-bar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $blue-hover;
+    border-radius: 4px;
+  }
+}

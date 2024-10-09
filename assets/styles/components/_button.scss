@@ -1,0 +1,87 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+.tm-button {
+  border-radius: 8px;
+  padding: 12px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    transition: all 0.2s ease-in;
+  }
+
+  &:active {
+    transition: all 0.2s ease-in;
+  }
+
+  &.blue {
+    @include font-base(16px, 500, normal, normal);
+
+    background-color: $blue;
+    color: $white;
+    border: none;
+
+    &:hover {
+      background-color: $blue-hover;
+    }
+
+    &:active {
+      box-shadow:
+        0px 1px 2px 0px rgba(16, 24, 40, 0.05),
+        0px 0px 0px 4px $blue-shadow;
+      background: $blue-click;
+    }
+
+    &:disabled {
+      color: $disabled-text;
+      background-color: $disabled;
+      cursor: default;
+    }
+
+    & app-icon {
+      @include svg-stroke-without-deep($white);
+    }
+  }
+
+  &.blue-border {
+    @include font-base(16px, 500, normal, normal);
+
+    border: 1px solid $blue;
+    color: $blue;
+    background-color: $white;
+
+    & app-icon {
+      @include svg-stroke-without-deep($blue);
+    }
+
+    &:hover {
+      border: 1px solid $blue-click;
+
+      & app-icon {
+        @include svg-stroke-without-deep($blue-click);
+      }
+    }
+
+    &:active {
+      box-shadow:
+        0 1px 2px 0 rgba(16, 24, 40, 0.05),
+        0 0 0 4px $blue-shadow;
+      border-color: $blue-click;
+    }
+
+    &:disabled {
+      color: $disabled-text;
+      border-color: $disabled-text;
+      cursor: default;
+
+      & app-icon {
+        @include svg-stroke-without-deep($disabled-text);
+      }
+    }
+  }
+}
