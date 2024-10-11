@@ -10,6 +10,6 @@ export const DEFAULT_NOTES_STATE: NotesStateModel = {
 };
 
 export enum NOTES_ACTIONS {
-  CREATE_NOTE = '[notes] CREATE NOTES',
   GET_NOTES = '[notes] GET NOTES',
+  ADD_NOTE = '[notes] ADD NOTE',
 }

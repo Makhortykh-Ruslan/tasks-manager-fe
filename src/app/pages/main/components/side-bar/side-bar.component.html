@@ -1,10 +1,16 @@
 <section class="component">
-  <app-logo></app-logo>
-  <nav class="component-nav">
-    <ul class="component-nav-list">
+  <header class="header">
+    <app-logo></app-logo>
+
+    <div class="hamburger" (click)="handleOpenBarMobile()">hamburger</div>
+  </header>
+  <nav class="nav" [class.active]="isShowBarMobile()">
+    <ul class="nav-list">
       @for (item of sideBarItemsState(); track item.id) {
         <li
           class="elem"
+          [ngClass]="item?.classes"
+          (click)="closeBarMobile()"
           [routerLinkActive]="['active']"
           [routerLink]="item.path | navBar: currentRole"
         >
@@ -14,5 +20,16 @@
       }
     </ul>
   </nav>
-  <footer class="footer">hello</footer>
+  <footer *ngIf="currentUser() as currentUser" class="footer mt-24">
+    <app-avatar></app-avatar>
+    <div class="info">
+      <p class="name">{{ currentUser.userName || '-' }}</p>
+      <p class="email">{{ currentUser.email || '-' }}</p>
+    </div>
+    <app-icon
+      class="icon"
+      [name]="'sign_out'"
+      (click)="handleLogout()"
+    ></app-icon>
+  </footer>
 </section>

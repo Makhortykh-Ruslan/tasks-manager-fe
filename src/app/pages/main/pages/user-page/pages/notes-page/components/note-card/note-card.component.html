@@ -1,0 +1,7 @@
+<ng-container *ngIf="data() as note">
+  <section class="component">
+    <header>{{ note.title || '-' }}</header>
+    <main>{{ note.description || '-' }}</main>
+    <footer></footer>
+  </section>
+</ng-container>

@@ -21,7 +21,10 @@ export class AuthState {
     { patchState }: StateContext<AuthStateModel>,
     { payload }: AuthSpace.SetAccessToken,
   ) {
-    localStorage.setItem(LocalStorageKeys.ACCESS_TOKEN, payload.token);
+    localStorage.setItem(
+      LocalStorageKeys.ACCESS_TOKEN,
+      payload.token,
+    );
 
     return patchState({
       access_token: payload.token,

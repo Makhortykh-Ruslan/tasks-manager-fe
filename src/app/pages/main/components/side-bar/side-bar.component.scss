@@ -1,5 +1,6 @@
 @import 'assets/styles/mixins';
 @import 'assets/styles/vars';
+@import 'assets/styles/media';
 
 .component {
   padding: 32px 20px 32px 24px;
@@ -8,53 +9,138 @@
   border-right: 1px solid $grey-3;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
 
-  &-nav {
-    margin-top: 24px;
+.header {
 
-    &-list {
-      list-style-type: none;
-      display: grid;
-      gap: 8px;
+  & .hamburger {
+    display: none;
+  }
+}
 
-      & .elem {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 8px 12px;
-        transition: 0.1s ease;
-        cursor: pointer;
+.nav {
+  margin-top: 24px;
+  padding: 0 0 24px 0;
+  border-bottom: 1px solid $grey-3;
+
+  &-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+
+    & .elem {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      transition: 0.1s ease;
+      cursor: pointer;
+      height: 40px;
+
+      & .link {
+        @include font-base(16px, 500, normal, normal);
+
+        color: $black;
+        text-decoration: none;
+      }
+
+      & .icon {
+        @include svg-stroke($black);
+        @include svg-size(24px, 24px);
+      }
+
+      &:hover {
+        background-color: $blue-3;
+        transition: 0.2s ease-in-out;
+        border-radius: 6px;
+      }
+
+      &.active {
+        transition: 0.2s ease-in-out;
 
         & .link {
-          @include font-base(16px, 500, normal, normal);
-
-          color: $black;
-          text-decoration: none;
+          color: $blue;
         }
 
         & .icon {
-          @include svg-stroke($black);
-          @include svg-size(24px, 24px);
-        }
-
-        &:hover {
-          background-color: $blue-3;
-          transition: 0.2s ease-in-out;
-          border-radius: 6px;
-        }
-
-        &.active {
-          transition: 0.2s ease-in-out;
-
-          & .link {
-            color: $blue;
-          }
-
-          & .icon {
-            @include svg-stroke($blue);
-          }
+          @include svg-stroke($blue);
         }
       }
+
+      &.top {
+        margin-top: auto;
+      }
     }
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  & .icon {
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  & .info {
+    display: grid;
+    gap: 8px;
+
+    & > * {
+      @include truncate(87px);
+    }
+
+    & .name {
+      @include font-base(14px, 700, normal, normal);
+
+      color: $black-2;
+    }
+
+    & .email {
+      @include font-base(14px, 400, normal, normal);
+
+      color: $grey-4;
+    }
+  }
+}
+
+@include respond-to(sm) {
+  .component {
+    position: relative;
+    padding: 16px 12px;
+    border-bottom: 1px solid $grey-3;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .hamburger {
+      display: block;
+    }
+  }
+
+  .nav {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    top: 70px;
+    z-index: 1001;
+    display: none;
+
+    &.active {
+      display: block;
+      height: 90vh;
+    }
+  }
+
+  .footer {
+    display: none;
   }
 }

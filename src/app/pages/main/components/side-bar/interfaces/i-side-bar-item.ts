@@ -5,4 +5,5 @@ export interface ISideBarItem {
   path: string;
   icon: tmIcon;
   id: string;
+  classes?: string[];
 }

@@ -9,6 +9,7 @@ import { UserService } from '@core/services';
 import { UserAdapters } from '@core/adapters/user-adapters';
 import { map, tap } from 'rxjs';
 import { IUser } from '@core/interfaces/i-user';
+import { LocalStorageKeys } from '@core/enums/localStorageKeys';
 
 @State({
   name: 'user',
@@ -29,5 +30,11 @@ export class UserState {
       map(UserAdapters.transformUserSelf.bind(this)),
       tap((currentUser) => patchState({ currentUser })),
     );
+  }
+
+  @Action(UserSpace.ResetCurrentUser)
+  ResetCurrentUser({ patchState }: StateContext<UserStateModel>) {
+    localStorage.removeItem(LocalStorageKeys.ACCESS_TOKEN);
+    patchState({ currentUser: null });
   }
 }

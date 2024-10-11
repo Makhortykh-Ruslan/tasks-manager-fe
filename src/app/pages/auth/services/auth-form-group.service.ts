@@ -1,6 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EMAIL_REGEXP, PASSWORD_REGEXP } from '@core/constants/reg-exp';
+import {
+  EMAIL_REGEXP,
+  PASSWORD_REGEXP,
+} from '@core/constants/reg-exp';
 import { controlNames } from '@core/enums';
 
 @Injectable()

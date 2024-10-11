@@ -10,4 +10,5 @@ export const DEFAULT_USER_STATE: UserStateModel = {
 
 export enum USER_ACTIONS {
   GET_CURRENT_USER = '[user] GET CURRENT USER',
+  RESET_CURRENT_USER = '[user] RESET CURRENT USER',
 }

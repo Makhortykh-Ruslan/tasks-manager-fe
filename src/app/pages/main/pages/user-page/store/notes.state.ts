@@ -19,20 +19,23 @@ export class NotesState {
     return notes.notes;
   }
 
-  @Action(NotesSpace.CreateNote)
-  CreateNote(
-    ctx: StateContext<NotesStateModel>,
-    { payload }: NotesSpace.CreateNote,
+  @Action(NotesSpace.AddNote)
+  AddNote(
+    { patchState, getState }: StateContext<NotesStateModel>,
+    { payload }: NotesSpace.AddNote,
   ) {
-    return this.notesService.createNote(payload);
+    patchState({
+      notes: {
+        ...getState().notes,
+        model: [...getState().notes.model, payload],
+      },
+    });
   }
 
   @Action(NotesSpace.GetNotes)
   GetNotes({ patchState }: StateContext<NotesStateModel>) {
-    return this.notesService.getNotes().pipe(
-      tap((notes) => {
-        patchState({ notes });
-      }),
-    );
+    return this.notesService
+      .getNotes()
+      .pipe(tap((notes) => patchState({ notes })));
   }
 }

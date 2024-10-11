@@ -1,0 +1,31 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/vars';
+
+.component {
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 12px;
+
+  &.success {
+    border: 1px solid $green;
+    color: $green;
+  }
+
+  &.error {
+    border: 1px solid $red;
+    color: $red;
+  }
+
+  &.warm {
+    border: 1px solid $warm;
+    color: $warm;
+  }
+}
+
+.title {
+  @include font-base(16px, 500, normal, normal);
+}
+
+.test {
+  @include font-base(14px, 400, normal, normal);
+}

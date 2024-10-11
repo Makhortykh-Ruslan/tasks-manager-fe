@@ -43,14 +43,19 @@ import { DestroyService } from '@core/services';
     NgIf,
   ],
 })
-export class LoginComponent extends AbstractErrorMessages implements OnInit {
+export class LoginComponent
+  extends AbstractErrorMessages
+  implements OnInit
+{
   public isShowLoading = signal<boolean>(false);
 
   public controlNames = controlNames;
   public placeholders = placeholders;
   public labels = labels;
 
-  private authFormGroupService = inject(AuthFormGroupService, { self: true });
+  private authFormGroupService = inject(AuthFormGroupService, {
+    self: true,
+  });
   private authService = inject(AuthService, { self: true });
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
@@ -68,7 +73,9 @@ export class LoginComponent extends AbstractErrorMessages implements OnInit {
       .pipe(
         take(1),
         tap((response) => {
-          this.store.dispatch(new AuthSpace.SetAccessToken(response.model));
+          this.store.dispatch(
+            new AuthSpace.SetAccessToken(response.model),
+          );
           this.router.navigate(['/']);
         }),
         finalize(() => this.isShowLoading.set(false)),

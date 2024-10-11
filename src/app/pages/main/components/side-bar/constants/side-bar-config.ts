@@ -27,6 +27,19 @@ const USER_SIDE_BAR: ISideBarItem[] = [
     icon: 'trash',
     id: generateUniqueId(),
   },
+  {
+    title: 'Support',
+    path: 'support',
+    icon: 'lifebuoy',
+    classes: ['top'],
+    id: generateUniqueId(),
+  },
+  {
+    title: 'Settings',
+    path: 'settings',
+    icon: 'gear',
+    id: generateUniqueId(),
+  },
 ];
 
 const ADMIN_SIDE_BAR: ISideBarItem[] = [];

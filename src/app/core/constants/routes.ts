@@ -2,7 +2,12 @@ type AuthRoutingPath = 'auth' | 'login' | 'registration';
 
 type RolePageRoutingPath = 'admin' | 'user';
 
-type MainPageRoutingPath = 'notes' | 'reminders' | 'archive' | 'removed';
+type MainPageRoutingPath =
+  | 'notes'
+  | 'reminders'
+  | 'archive'
+  | 'removed'
+  | 'settings';
 
 type CoreRoutingPath = 'icons';
 
@@ -47,4 +52,5 @@ export const appRoutes: Record<
   reminders: { routerPath: 'reminders' },
   archive: { routerPath: 'archive' },
   removed: { routerPath: 'removed' },
+  settings: { routerPath: 'settings' },
 };

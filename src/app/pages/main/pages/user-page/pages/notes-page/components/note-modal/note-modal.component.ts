@@ -35,13 +35,15 @@ export class NoteModalComponent
   extends AbstractErrorMessages
   implements OnInit
 {
-  private store = inject(Store);
-  private dialogRef = inject(MatDialogRef<NoteModalComponent>);
-  private noteFormGroupService = inject(NoteFormGroupService, { self: true });
-
   public LABELS = labels;
   public PLACEHOLDER = placeholders;
   public CONTROL_NAME = controlNames;
+
+  private store = inject(Store);
+  private dialogRef = inject(MatDialogRef<NoteModalComponent>);
+  private noteFormGroupService = inject(NoteFormGroupService, {
+    self: true,
+  });
 
   public ngOnInit(): void {
     this.dialogRef.addPanelClass('note-modal');

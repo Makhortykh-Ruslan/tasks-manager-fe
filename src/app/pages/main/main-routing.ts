@@ -18,7 +18,9 @@ const children: Routes = [
   {
     path: appRoutes.user.routerPath,
     loadChildren: () =>
-      import('./pages/user-page/user-routing').then((r) => r.USER_ROUTES),
+      import('./pages/user-page/user-routing').then(
+        (r) => r.USER_ROUTES,
+      ),
   },
 ];
 

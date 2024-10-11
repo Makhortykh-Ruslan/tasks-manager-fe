@@ -1,4 +1,7 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+} from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { ApplicationConfig } from '@angular/platform-browser';
 import { ApiInterceptor } from '@core/interceptors/api.interceptor';

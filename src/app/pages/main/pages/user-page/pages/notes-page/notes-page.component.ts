@@ -19,6 +19,10 @@ import { INote } from '@core/interfaces/i-note';
 import { LoaderComponent } from '@core/components/loader/loader.component';
 import { NotesState } from '../../store/notes.state';
 import { ResponseModelNotes } from '@core/types';
+import { NoteCardComponent } from './components/note-card/note-card.component';
+import { CdkDrag } from '@angular/cdk/drag-drop';
+import { AlertService } from '@core/services';
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-notes-page',
@@ -29,6 +33,8 @@ import { ResponseModelNotes } from '@core/types';
     ButtonDirective,
     NgIf,
     LoaderComponent,
+    NoteCardComponent,
+    CdkDrag,
   ],
   templateUrl: './notes-page.component.html',
   styleUrl: './notes-page.component.scss',
@@ -40,12 +46,14 @@ export class NotesPageComponent implements OnInit {
     NotesState.notes,
   );
 
+  public placeholders = placeholders;
+
   constructor(
     private dialog: MatDialog,
     private store: Store,
+    private alertService: AlertService,
+    private notesService: NotesService,
   ) {}
-
-  public placeholders = placeholders;
 
   public ngOnInit(): void {
     this.initData();
@@ -63,9 +71,12 @@ export class NotesPageComponent implements OnInit {
         filter(Boolean),
         tap(() => this.isShowLoading.set(true)),
         switchMap((response: INote) =>
-          this.store.dispatch(new NotesSpace.CreateNote(response)),
+          this.notesService.createNote(response),
         ),
-        switchMap(() => this.store.dispatch(new NotesSpace.GetNotes())),
+        tap((response) => {
+          this.store.dispatch(new NotesSpace.AddNote(response.model));
+          this.alertService.throwSuccess(response.message);
+        }),
         finalize(() => this.isShowLoading.set(false)),
       )
       .subscribe();

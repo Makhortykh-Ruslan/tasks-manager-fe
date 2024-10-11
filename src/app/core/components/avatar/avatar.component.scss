@@ -1,0 +1,14 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/vars';
+
+.component {
+  display: grid;
+  gap: 16px;
+
+  & .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red;
+  }
+}

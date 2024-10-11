@@ -1,0 +1,9 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+.component {
+  width: 256px;
+  padding: 16px;
+  border: 1px solid $grey-3;
+  border-radius: 8px;
+}

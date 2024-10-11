@@ -24,7 +24,17 @@ module.exports = [
     rules: {
       'prettier/prettier': [
         'error',
-        { singleQuote: true, trailingComma: 'all', printWidth: 80 },
+        { singleQuote: true, trailingComma: 'all', printWidth: 70 },
+      ],
+      "@typescript-eslint/explicit-member-accessibility": [
+        "error",
+        {
+          "accessibility": "explicit",
+          "overrides": {
+            "constructors": "no-public",
+            "properties": "off"
+          }
+        }
       ],
       '@angular-eslint/component-selector': [
         'error',
@@ -56,7 +66,26 @@ module.exports = [
       ],
       'no-multiple-empty-lines': 'error',
       'prefer-const': 'error',
-      'max-len': ['error', { code: 80, ignoreComments: true }],
+      'max-len': ['error', { code: 70, ignoreComments: true }],
+      "@typescript-eslint/member-ordering": [
+        "error",
+        {
+          "default": [
+            "public-static-field",
+            "protected-static-field",
+            "private-static-field",
+            "public-instance-field",
+            "protected-instance-field",
+            "private-instance-field",
+            "public-constructor",
+            "protected-constructor",
+            "private-constructor",
+            "public-instance-method",
+            "protected-instance-method",
+            "private-instance-method"
+          ]
+        }
+      ],
       ...prettierConfig.rules,
     },
   },

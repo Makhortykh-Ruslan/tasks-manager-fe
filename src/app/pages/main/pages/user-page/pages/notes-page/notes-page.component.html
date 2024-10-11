@@ -11,14 +11,18 @@
       Add note
     </button>
   </header>
-  <app-input
-    [leftIconName]="'magnifying_glass'"
-    [placeholder]="placeholders.SEARCH"
-  ></app-input>
-  <main>
+  <div class="mb-40">
+    <app-input
+      [leftIconName]="'magnifying_glass'"
+      [placeholder]="placeholders.SEARCH"
+    ></app-input>
+  </div>
+  <main class="example-boundary">
     <ng-container *ngIf="notes() as notes; else emptyTemp">
       @for (note of notes.model; track note._id) {
-        <div>{{ note.title }}</div>
+        <div cdkDragBoundary=".example-boundary" cdkDrag>
+          <app-note-card [data]="note"></app-note-card>
+        </div>
       }
     </ng-container>
 
