@@ -4,7 +4,8 @@ import { INote } from '@core/interfaces/i-note';
 
 export type ResponseModelUser = ResponseModel<IUser>;
 
-export type ResponseModelCreateUser = ResponseModel<IAuthSuccessModel>;
+export type ResponseModelCreateUser =
+  ResponseModel<IAuthSuccessModel>;
 
 export type ResponseModelNote = ResponseModel<INote>;
 

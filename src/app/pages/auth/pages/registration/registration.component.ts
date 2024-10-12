@@ -49,7 +49,9 @@ export class RegistrationComponent
   public placeholders = placeholders;
   public labels = labels;
 
-  private authFormGroupService = inject(AuthFormGroupService, { self: true });
+  private authFormGroupService = inject(AuthFormGroupService, {
+    self: true,
+  });
   private authService = inject(AuthService, {
     self: true,
   });
@@ -69,7 +71,9 @@ export class RegistrationComponent
       .pipe(
         take(1),
         tap((response) => {
-          this.store.dispatch(new AuthSpace.SetAccessToken(response.model));
+          this.store.dispatch(
+            new AuthSpace.SetAccessToken(response.model),
+          );
           this.router.navigate(['']);
         }),
         finalize(() => this.isShowLoading.set(false)),
@@ -85,6 +89,7 @@ export class RegistrationComponent
 
   private initData(): void {
     this.authFormGroupService.initRegistrationFormGroup();
-    this.formGroup = this.authFormGroupService.getRegistrationFormGroup();
+    this.formGroup =
+      this.authFormGroupService.getRegistrationFormGroup();
   }
 }

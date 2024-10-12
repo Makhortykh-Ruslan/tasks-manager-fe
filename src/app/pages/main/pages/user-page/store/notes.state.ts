@@ -5,6 +5,7 @@ import { NotesSpace } from './notes.actions';
 import { NotesService } from '../services/notes.service';
 import { tap } from 'rxjs';
 import { ResponseModelNotes } from '@core/types';
+import { DEFAULT_RESPONSE_MODEL } from '@core/constants';
 
 @State({
   name: 'notes',
@@ -32,10 +33,31 @@ export class NotesState {
     });
   }
 
+  @Action(NotesSpace.DeleteNote)
+  DeleteNote(
+    { patchState, getState }: StateContext<NotesStateModel>,
+    { payload }: NotesSpace.DeleteNote,
+  ) {
+    const state = getState().notes;
+    const model = [...state.model];
+    model.splice(payload, 1);
+
+    patchState({
+      notes: { ...state, model },
+    });
+  }
+
   @Action(NotesSpace.GetNotes)
   GetNotes({ patchState }: StateContext<NotesStateModel>) {
     return this.notesService
       .getNotes()
       .pipe(tap((notes) => patchState({ notes })));
+  }
+
+  @Action(NotesSpace.ResetNotes)
+  ResetNotes({ patchState }: StateContext<NotesStateModel>) {
+    patchState({
+      notes: DEFAULT_RESPONSE_MODEL,
+    });
   }
 }

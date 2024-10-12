@@ -9,7 +9,9 @@ export class TmIconsService {
   private registry = new Map<string, string>();
 
   public registerIcons(icons: TmIcon[]): void {
-    icons.forEach((icon: TmIcon) => this.registry.set(icon.name, icon.data));
+    icons.forEach((icon: TmIcon) =>
+      this.registry.set(icon.name, icon.data),
+    );
   }
 
   public getIcon(iconName: string): string | undefined {

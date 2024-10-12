@@ -6,6 +6,13 @@ export const tmIconsArchive: {
   name: 'archive',
   data: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 5.25H3C2.58579 5.25 2.25 5.58579 2.25 6V8.25C2.25 8.66421 2.58579 9 3 9H21C21.4142 9 21.75 8.66421 21.75 8.25V6C21.75 5.58579 21.4142 5.25 21 5.25Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.25 9V18C20.25 18.1989 20.171 18.3897 20.0303 18.5303C19.8897 18.671 19.6989 18.75 19.5 18.75H4.5C4.30109 18.75 4.11032 18.671 3.96967 18.5303C3.82902 18.3897 3.75 18.1989 3.75 18V9" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.75 12.75H14.25" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 };
+export const tmIconsBellSimpleRinging: {
+  name: 'bell_simple_ringing';
+  data: string;
+} = {
+  name: 'bell_simple_ringing',
+  data: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 17.5H12.5" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.375 1.875C15.5819 2.64509 16.5608 3.72406 17.2102 5" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.79004 5C3.43939 3.72406 4.41829 2.64509 5.6252 1.875" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.37515 8.75C4.37515 7.25816 4.96778 5.82742 6.02267 4.77252C7.07756 3.71763 8.5083 3.125 10.0001 3.125C11.492 3.125 12.9227 3.71763 13.9776 4.77252C15.0325 5.82742 15.6251 7.25816 15.6251 8.75C15.6251 11.5484 16.2736 13.1719 16.7892 14.0625C16.844 14.1574 16.8728 14.2649 16.8729 14.3745C16.873 14.484 16.8444 14.5916 16.7898 14.6865C16.7352 14.7815 16.6566 14.8604 16.5619 14.9154C16.4672 14.9705 16.3597 14.9996 16.2501 15H3.75015C3.64076 14.9993 3.53345 14.97 3.43896 14.9149C3.34448 14.8597 3.26611 14.7808 3.2117 14.6859C3.15729 14.591 3.12874 14.4835 3.12891 14.3741C3.12907 14.2647 3.15795 14.1572 3.21265 14.0625C3.72749 13.1719 4.37515 11.5477 4.37515 8.75Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
 export const tmIconsBell: {
   name: 'bell';
   data: string;
@@ -27,12 +34,26 @@ export const tmIconsDefaultIcon: {
   name: 'default_icon',
   data: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.59863 10.8169L18.0002 18.1519L31.4018 10.8169" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.54 3.51564L30.915 10.2909C31.0917 10.3876 31.2392 10.53 31.3421 10.7031C31.445 10.8763 31.4995 11.0739 31.5 11.2753V24.7247C31.4995 24.9261 31.445 25.1237 31.3421 25.2969C31.2392 25.47 31.0917 25.6124 30.915 25.7091L18.54 32.4844C18.3744 32.575 18.1887 32.6225 18 32.6225C17.8113 32.6225 17.6256 32.575 17.46 32.4844L5.085 25.7091C4.9083 25.6124 4.76079 25.47 4.65789 25.2969C4.55498 25.1237 4.50046 24.9261 4.5 24.7247V11.2753C4.50046 11.0739 4.55498 10.8763 4.65789 10.7031C4.76079 10.53 4.9083 10.3876 5.085 10.2909L17.46 3.51564C17.6256 3.42504 17.8113 3.37756 18 3.37756C18.1887 3.37756 18.3744 3.42504 18.54 3.51564Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 18.1533V32.625" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 };
+export const tmIconsDots: {
+  name: 'dots';
+  data: string;
+} = {
+  name: 'dots',
+  data: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10.9375C10.5178 10.9375 10.9375 10.5178 10.9375 10C10.9375 9.48223 10.5178 9.0625 10 9.0625C9.48223 9.0625 9.0625 9.48223 9.0625 10C9.0625 10.5178 9.48223 10.9375 10 10.9375Z" fill="black"/><path d="M10 5.625C10.5178 5.625 10.9375 5.20527 10.9375 4.6875C10.9375 4.16973 10.5178 3.75 10 3.75C9.48223 3.75 9.0625 4.16973 9.0625 4.6875C9.0625 5.20527 9.48223 5.625 10 5.625Z" fill="black"/><path d="M10 16.25C10.5178 16.25 10.9375 15.8303 10.9375 15.3125C10.9375 14.7947 10.5178 14.375 10 14.375C9.48223 14.375 9.0625 14.7947 9.0625 15.3125C9.0625 15.8303 9.48223 16.25 10 16.25Z" fill="black"/></svg>`
+};
 export const tmIconsGear: {
   name: 'gear';
   data: string;
 } = {
   name: 'gear',
   data: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.884 16.6959C3.4696 15.9822 3.15212 15.2164 2.93994 14.4188L4.51307 12.45C4.49525 12.149 4.49525 11.8472 4.51307 11.5463L2.94088 9.5775C3.1527 8.77976 3.46953 8.01369 3.88307 7.29938L6.38713 7.01813C6.58709 6.79284 6.80028 6.57965 7.02557 6.37969L7.30682 3.87656C8.0201 3.465 8.78492 3.15005 9.58119 2.94L11.5499 4.51313C11.8509 4.49532 12.1527 4.49532 12.4537 4.51313L14.4224 2.94094C15.2202 3.15276 15.9863 3.46959 16.7006 3.88313L16.9818 6.38719C17.2071 6.58715 17.4203 6.80034 17.6203 7.02563L20.1234 7.30688C20.5378 8.02066 20.8553 8.78645 21.0674 9.58407L19.4943 11.5528C19.5121 11.8538 19.5121 12.1556 19.4943 12.4566L21.0665 14.4253C20.8562 15.2228 20.5409 15.9889 20.129 16.7034L17.6249 16.9847C17.425 17.21 17.2118 17.4232 16.9865 17.6231L16.7053 20.1263C15.9915 20.5407 15.2257 20.8581 14.4281 21.0703L12.4593 19.4972C12.1583 19.515 11.8566 19.515 11.5556 19.4972L9.58682 21.0694C8.78931 20.859 8.02325 20.5438 7.30869 20.1319L7.02744 17.6278C6.80215 17.4279 6.58897 17.2147 6.389 16.9894L3.884 16.6959Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
+export const tmIconsImage: {
+  name: 'image';
+  data: string;
+} = {
+  name: 'image',
+  data: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.25 3.125H3.75C3.40482 3.125 3.125 3.40482 3.125 3.75V16.25C3.125 16.5952 3.40482 16.875 3.75 16.875H16.25C16.5952 16.875 16.875 16.5952 16.875 16.25V3.75C16.875 3.40482 16.5952 3.125 16.25 3.125Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 8.75C8.19036 8.75 8.75 8.19036 8.75 7.5C8.75 6.80964 8.19036 6.25 7.5 6.25C6.80964 6.25 6.25 6.80964 6.25 7.5C6.25 8.19036 6.80964 8.75 7.5 8.75Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.42871 16.875L12.9951 8.30782C13.0532 8.24971 13.1221 8.20361 13.198 8.17215C13.2738 8.1407 13.3552 8.12451 13.4373 8.12451C13.5194 8.12451 13.6008 8.1407 13.6766 8.17215C13.7525 8.20361 13.8214 8.24971 13.8795 8.30782L16.8748 11.3039" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 };
 export const tmIconsLifebuoy: {
   name: 'lifebuoy';
@@ -54,6 +75,13 @@ export const tmIconsNote: {
 } = {
   name: 'note',
   data: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.6897 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V4.5C3.75 4.30109 3.82902 4.11032 3.96967 3.96967C4.11032 3.82902 4.30109 3.75 4.5 3.75H19.5C19.6989 3.75 19.8897 3.82902 20.0303 3.96967C20.171 4.11032 20.25 4.30109 20.25 4.5V14.6897C20.2499 14.8883 20.171 15.0788 20.0306 15.2194L15.2194 20.0306C15.0788 20.171 14.8883 20.2499 14.6897 20.25Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.1825 14.9991H15V20.1816" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
+export const tmIconsPalette: {
+  name: 'palette';
+  data: string;
+} = {
+  name: 'palette',
+  data: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 15C10 14.5027 10.1975 14.0258 10.5492 13.6742C10.9008 13.3226 11.3777 13.125 11.875 13.125H15.4852C15.9098 13.1251 16.322 12.981 16.6541 12.7163C16.9862 12.4516 17.2186 12.082 17.3133 11.668C17.4423 11.0995 17.505 10.5181 17.5 9.93517C17.4648 5.80861 14.05 2.45861 9.92188 2.50001C7.94632 2.52059 6.05868 3.31985 4.66901 4.72414C3.27934 6.12844 2.49989 8.02435 2.5 10C2.5 13.2664 4.58828 15.7375 7.5 16.7664C7.7827 16.8664 8.08525 16.8971 8.38226 16.8559C8.67927 16.8148 8.96209 16.703 9.20698 16.53C9.45186 16.3569 9.65168 16.1277 9.78967 15.8615C9.92766 15.5953 9.99978 15.2999 10 15Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 6.875C10.5178 6.875 10.9375 6.45527 10.9375 5.9375C10.9375 5.41973 10.5178 5 10 5C9.48223 5 9.0625 5.41973 9.0625 5.9375C9.0625 6.45527 9.48223 6.875 10 6.875Z" fill="black"/><path d="M6.5625 8.75C7.08027 8.75 7.5 8.33027 7.5 7.8125C7.5 7.29473 7.08027 6.875 6.5625 6.875C6.04473 6.875 5.625 7.29473 5.625 7.8125C5.625 8.33027 6.04473 8.75 6.5625 8.75Z" fill="black"/><path d="M6.5625 13.125C7.08027 13.125 7.5 12.7053 7.5 12.1875C7.5 11.6697 7.08027 11.25 6.5625 11.25C6.04473 11.25 5.625 11.6697 5.625 12.1875C5.625 12.7053 6.04473 13.125 6.5625 13.125Z" fill="black"/><path d="M13.4375 8.75C13.9553 8.75 14.375 8.33027 14.375 7.8125C14.375 7.29473 13.9553 6.875 13.4375 6.875C12.9197 6.875 12.5 7.29473 12.5 7.8125C12.5 8.33027 12.9197 8.75 13.4375 8.75Z" fill="black"/></svg>`
 };
 export const tmIconsPlus: {
   name: 'plus';
@@ -85,13 +113,17 @@ export const tmIconsTrash: {
 };
 export type tmIcon =
   | 'archive'
+  | 'bell_simple_ringing'
   | 'bell'
   | 'chat'
   | 'default_icon'
+  | 'dots'
   | 'gear'
+  | 'image'
   | 'lifebuoy'
   | 'magnifying_glass'
   | 'note'
+  | 'palette'
   | 'plus'
   | 'push_pin'
   | 'sign_out'
@@ -103,13 +135,17 @@ export interface TmIcon {
 export type TmIconNameSubset<T extends Readonly<TmIcon[]>> = T[number]['name'];
 export const completeIconSet = [
   tmIconsArchive,
+  tmIconsBellSimpleRinging,
   tmIconsBell,
   tmIconsChat,
   tmIconsDefaultIcon,
+  tmIconsDots,
   tmIconsGear,
+  tmIconsImage,
   tmIconsLifebuoy,
   tmIconsMagnifyingGlass,
   tmIconsNote,
+  tmIconsPalette,
   tmIconsPlus,
   tmIconsPushPin,
   tmIconsSignOut,

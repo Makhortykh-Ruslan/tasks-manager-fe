@@ -10,6 +10,7 @@ import { UserAdapters } from '@core/adapters/user-adapters';
 import { map, tap } from 'rxjs';
 import { IUser } from '@core/interfaces/i-user';
 import { LocalStorageKeys } from '@core/enums/localStorageKeys';
+import { NotesSpace } from '../../../pages/main/pages/user-page/store/notes.actions';
 
 @State({
   name: 'user',
@@ -33,8 +34,12 @@ export class UserState {
   }
 
   @Action(UserSpace.ResetCurrentUser)
-  ResetCurrentUser({ patchState }: StateContext<UserStateModel>) {
+  ResetCurrentUser({
+    patchState,
+    dispatch,
+  }: StateContext<UserStateModel>) {
     localStorage.removeItem(LocalStorageKeys.ACCESS_TOKEN);
     patchState({ currentUser: null });
+    dispatch(new NotesSpace.ResetNotes());
   }
 }

@@ -21,10 +21,20 @@ export class ErrorInterceptor implements HttpInterceptor {
     next: HttpHandler,
   ): Observable<HttpEvent<T>> {
     return next.handle(req).pipe(
-      catchError((error: HttpErrorResponse) => {
-        switch (error.status) {
+      catchError((responseError: HttpErrorResponse) => {
+        const { status, error } = responseError;
+        switch (status) {
           case 401:
             this.router.navigate([appRoutes.auth.routerPath]);
+            this.alertService.throwError(error.message);
+            break;
+          case 404:
+            this.alertService.throwError(error.message);
+            break;
+          case 400:
+            this.alertService.throwError(error.message);
+            break;
+          case 403:
             this.alertService.throwError(error.message);
             break;
           case 0:

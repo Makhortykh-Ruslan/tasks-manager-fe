@@ -23,6 +23,7 @@ import { NoteCardComponent } from './components/note-card/note-card.component';
 import { CdkDrag } from '@angular/cdk/drag-drop';
 import { AlertService } from '@core/services';
 import { NotesService } from '../../services/notes.service';
+import { NoteActionModel } from '@core/models';
 
 @Component({
   selector: 'app-notes-page',
@@ -82,7 +83,30 @@ export class NotesPageComponent implements OnInit {
       .subscribe();
   }
 
+  public handleActionsNoteCard(
+    event: NoteActionModel,
+    idx: number,
+  ): void {
+    this.isShowLoading.set(true);
+
+    this.notesService
+      .deleteNote(event.data._id)
+      .pipe(
+        take(1),
+        tap((response) => {
+          this.alertService.throwSuccess(response.message);
+          this.store.dispatch(new NotesSpace.DeleteNote(idx));
+        }),
+        finalize(() => this.isShowLoading.set(false)),
+      )
+      .subscribe();
+  }
+
   private initData(): void {
+    if (this.store.selectSnapshot(NotesState.notes).model.length) {
+      return;
+    }
+
     this.isShowLoading.set(true);
 
     this.store

@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  WritableSignal,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { completeIconSet } from '@icons/tm-icons';
 import { TmIconsService } from '@icons/tm-icons.service';
@@ -10,7 +14,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
   selector: 'app-root',
   template: `
     <app-loader
-      *ngIf="loader$ | async"
+      *ngIf="loaderSignal()"
       [isOverlay]="true"
     ></app-loader>
     <router-outlet></router-outlet>
@@ -20,7 +24,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  public loader$ = this.mainLoaderService.getLoaderState();
+  public loaderSignal: WritableSignal<boolean> =
+    this.mainLoaderService.getLoaderState();
   constructor(
     private epIconsService: TmIconsService,
     private mainLoaderService: MainLoaderService,

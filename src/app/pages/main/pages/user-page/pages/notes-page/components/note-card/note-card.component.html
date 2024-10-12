@@ -1,7 +1,18 @@
 <ng-container *ngIf="data() as note">
-  <section class="component">
-    <header>{{ note.title || '-' }}</header>
-    <main>{{ note.description || '-' }}</main>
-    <footer></footer>
-  </section>
+  <aside class="component">
+    <div class="container" [cdkDragBoundary]="dragClass()" cdkDrag>
+      <header class="header mb-16">{{ note.title || '-' }}</header>
+      <main class="main">{{ note.description || '-' }}</main>
+      <footer class="footer">
+        <app-icon class="icon" [name]="'bell_simple_ringing'"></app-icon>
+        <app-icon class="icon" [name]="'palette'"></app-icon>
+        <app-icon class="icon" [name]="'image'"></app-icon>
+        <app-icon
+          class="icon"
+          [name]="'dots'"
+          (click)="handleAction('remove')"
+        ></app-icon>
+      </footer>
+    </div>
+  </aside>
 </ng-container>

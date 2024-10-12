@@ -44,7 +44,7 @@ export class AlertService {
       horizontalPosition: 'right',
       verticalPosition: 'bottom',
       data,
-      duration: 1000,
+      duration: 5000,
     };
   }
 }

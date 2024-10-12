@@ -17,12 +17,14 @@
       [placeholder]="placeholders.SEARCH"
     ></app-input>
   </div>
-  <main class="example-boundary">
+  <main class="drag-boundary-place">
     <ng-container *ngIf="notes() as notes; else emptyTemp">
-      @for (note of notes.model; track note._id) {
-        <div cdkDragBoundary=".example-boundary" cdkDrag>
-          <app-note-card [data]="note"></app-note-card>
-        </div>
+      @for (note of notes.model; track note._id; let idx = $index) {
+        <app-note-card
+          [dragClass]="'.drag-boundary-place'"
+          [data]="note"
+          (actions)="handleActionsNoteCard($event, idx)"
+        ></app-note-card>
       }
     </ng-container>
 

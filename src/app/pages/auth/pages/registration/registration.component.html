@@ -1,6 +1,4 @@
 <section class="page">
-  <app-loader *ngIf="isShowLoading()" [isOverlay]="true"></app-loader>
-
   <main class="page-main">
     <div class="logo mb-64">
       <app-logo></app-logo>
@@ -34,12 +32,17 @@
     ></app-input>
 
     <button
-      [disabled]="formGroup.invalid"
+      [disabled]="formGroup.invalid || isShowLoading()"
       appButton
       class="mb-32"
       (click)="handleSubmit()"
     >
-      Get started
+      @if (isShowLoading()) {
+        Please wait...
+        <app-loader [type]="'dots'"></app-loader>
+      } @else {
+        Get started
+      }
     </button>
 
     <div class="flex center">
