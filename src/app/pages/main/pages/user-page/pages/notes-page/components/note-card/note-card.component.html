@@ -1,18 +1,22 @@
 <ng-container *ngIf="data() as note">
-  <aside class="component">
-    <div class="container" [cdkDragBoundary]="dragClass()" cdkDrag>
-      <header class="header mb-16">{{ note.title || '-' }}</header>
-      <main class="main">{{ note.description || '-' }}</main>
-      <footer class="footer">
-        <app-icon class="icon" [name]="'bell_simple_ringing'"></app-icon>
-        <app-icon class="icon" [name]="'palette'"></app-icon>
-        <app-icon class="icon" [name]="'image'"></app-icon>
-        <app-icon
-          class="icon"
-          [name]="'dots'"
-          (click)="handleAction('remove')"
-        ></app-icon>
-      </footer>
-    </div>
+  <aside
+    class="component"
+    [cdkDragFreeDragPosition]="note.dragPosition"
+    [cdkDragBoundary]="dragClass()"
+    (cdkDragEnded)="onDragEnd($event)"
+    cdkDrag
+  >
+    <header class="header mb-16">{{ note.title || '-' }}</header>
+    <main class="main mb-16">{{ note.description || '-' }}</main>
+    <footer class="footer">
+      <app-icon class="icon" [name]="'bell_simple_ringing'"></app-icon>
+      <app-icon class="icon" [name]="'palette'"></app-icon>
+      <app-icon class="icon" [name]="'image'"></app-icon>
+      <app-icon
+        class="icon"
+        [name]="'dots'"
+        (click)="handleAction(ACTIONS_NAME.DELETE)"
+      ></app-icon>
+    </footer>
   </aside>
 </ng-container>

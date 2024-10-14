@@ -19,4 +19,12 @@ export namespace NotesSpace {
   export class ResetNotes {
     static readonly type = NOTES_ACTIONS.RESET_NOTES;
   }
+
+  export class UpdateNote {
+    static readonly type = NOTES_ACTIONS.UPDATE_NOTES;
+    constructor(
+      public readonly note: INote,
+      public readonly idx: number,
+    ) {}
+  }
 }

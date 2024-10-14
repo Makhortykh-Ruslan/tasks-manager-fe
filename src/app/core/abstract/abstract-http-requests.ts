@@ -57,6 +57,12 @@ export class AbstractHttpRequests {
     });
   }
 
+  public httpPatchRequest<T, U>(url: string, body: T): Observable<U> {
+    const headers = this.getHttpHeaders();
+
+    return this.http.patch<U>(url, body, { headers });
+  }
+
   public getHttpHeaders(): HttpHeaders {
     return new HttpHeaders().set(
       'Authorization',

@@ -60,4 +60,20 @@ export class NotesState {
       notes: DEFAULT_RESPONSE_MODEL,
     });
   }
+
+  @Action(NotesSpace.UpdateNote)
+  UpdateNote(
+    { patchState, getState }: StateContext<NotesStateModel>,
+    { note, idx }: NotesSpace.UpdateNote,
+  ) {
+    const state = getState().notes;
+    const model = [...state.model];
+    model[idx] = note;
+
+    patchState({
+      notes: { ...state, model },
+    });
+
+    return this.notesService.updateNote(note);
+  }
 }

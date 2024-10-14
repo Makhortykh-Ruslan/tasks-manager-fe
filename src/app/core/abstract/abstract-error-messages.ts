@@ -5,12 +5,15 @@ export class AbstractErrorMessages {
   protected formGroup!: FormGroup;
   protected copyFormGroup!: FormGroup;
 
-  protected readonly defaultRequiredMessage = 'This field is required.';
+  protected readonly defaultRequiredMessage =
+    'This field is required.';
   protected readonly customPhoneMask = '9{14}';
   protected readonly customZipCodeMask = '9{7}';
 
   public get emailErrorMessage(): string {
-    const controlErrors = this.formGroup.get(controlNames.EMAIL)?.errors;
+    const controlErrors = this.formGroup.get(
+      controlNames.EMAIL,
+    )?.errors;
 
     return controlErrors?.['required']
       ? this.defaultRequiredMessage
@@ -20,7 +23,9 @@ export class AbstractErrorMessages {
   }
 
   public get passwordErrorMessage(): string {
-    const controlErrors = this.formGroup.get(controlNames.PASSWORD)?.errors;
+    const controlErrors = this.formGroup.get(
+      controlNames.PASSWORD,
+    )?.errors;
 
     return controlErrors?.['required']
       ? this.defaultRequiredMessage
@@ -32,7 +37,9 @@ export class AbstractErrorMessages {
   }
 
   public get userNameErrorMessage(): string {
-    const controlErrors = this.formGroup.get(controlNames.USER_NAME)?.errors;
+    const controlErrors = this.formGroup.get(
+      controlNames.USER_NAME,
+    )?.errors;
 
     return controlErrors?.['required']
       ? this.defaultRequiredMessage

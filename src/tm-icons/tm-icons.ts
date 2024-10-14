@@ -41,6 +41,13 @@ export const tmIconsDots: {
   name: 'dots',
   data: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10.9375C10.5178 10.9375 10.9375 10.5178 10.9375 10C10.9375 9.48223 10.5178 9.0625 10 9.0625C9.48223 9.0625 9.0625 9.48223 9.0625 10C9.0625 10.5178 9.48223 10.9375 10 10.9375Z" fill="black"/><path d="M10 5.625C10.5178 5.625 10.9375 5.20527 10.9375 4.6875C10.9375 4.16973 10.5178 3.75 10 3.75C9.48223 3.75 9.0625 4.16973 9.0625 4.6875C9.0625 5.20527 9.48223 5.625 10 5.625Z" fill="black"/><path d="M10 16.25C10.5178 16.25 10.9375 15.8303 10.9375 15.3125C10.9375 14.7947 10.5178 14.375 10 14.375C9.48223 14.375 9.0625 14.7947 9.0625 15.3125C9.0625 15.8303 9.48223 16.25 10 16.25Z" fill="black"/></svg>`
 };
+export const tmIconsFolderOpen: {
+  name: 'folder_open';
+  data: string;
+} = {
+  name: 'folder_open',
+  data: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 26V8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7H11.6663C11.8826 7 12.0932 7.07018 12.2662 7.2L16 10H25C25.2652 10 25.5196 10.1054 25.7071 10.2929C25.8946 10.4804 26 10.7348 26 11V14" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 26L7.7725 14.6838C7.83888 14.4846 7.96623 14.3114 8.13651 14.1887C8.30678 14.066 8.51136 14 8.72125 14H29C29.1585 14 29.3147 14.0376 29.4557 14.1098C29.5968 14.182 29.7186 14.2867 29.8113 14.4153C29.904 14.5438 29.9647 14.6925 29.9886 14.8492C30.0125 15.0058 29.9989 15.1659 29.9487 15.3162L26.3862 26H4Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
 export const tmIconsGear: {
   name: 'gear';
   data: string;
@@ -118,6 +125,7 @@ export type tmIcon =
   | 'chat'
   | 'default_icon'
   | 'dots'
+  | 'folder_open'
   | 'gear'
   | 'image'
   | 'lifebuoy'
@@ -140,6 +148,7 @@ export const completeIconSet = [
   tmIconsChat,
   tmIconsDefaultIcon,
   tmIconsDots,
+  tmIconsFolderOpen,
   tmIconsGear,
   tmIconsImage,
   tmIconsLifebuoy,

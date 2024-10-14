@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { InputComponent } from '@core/components/input/input.component';
 import { TmIconModule } from '@icons/tm-icon.module';
-import { placeholders } from '@core/enums';
+import { actionsName, placeholders } from '@core/enums';
 import { ButtonDirective } from '@core/directives/button.directive';
 import { NgIf } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -47,7 +47,7 @@ export class NotesPageComponent implements OnInit {
     NotesState.notes,
   );
 
-  public placeholders = placeholders;
+  public PLACEHOLDERS = placeholders;
 
   constructor(
     private dialog: MatDialog,
@@ -84,13 +84,24 @@ export class NotesPageComponent implements OnInit {
   }
 
   public handleActionsNoteCard(
-    event: NoteActionModel,
+    { action, data }: NoteActionModel,
     idx: number,
   ): void {
+    switch (action) {
+      case actionsName.UPDATE:
+        this.store.dispatch(new NotesSpace.UpdateNote(data, idx));
+        break;
+      case actionsName.DELETE:
+        this.deleteNote(data, idx);
+        break;
+    }
+  }
+
+  private deleteNote(data: INote, idx: number): void {
     this.isShowLoading.set(true);
 
     this.notesService
-      .deleteNote(event.data._id)
+      .deleteNote(data._id)
       .pipe(
         take(1),
         tap((response) => {

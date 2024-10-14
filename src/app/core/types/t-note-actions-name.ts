@@ -1,1 +1,1 @@
-export type TNoteActionsName = 'remove';
+export type TNoteActionsName = 'remove' | 'update';

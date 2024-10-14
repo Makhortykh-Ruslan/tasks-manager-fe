@@ -19,4 +19,8 @@ export class NotesService extends AbstractHttpRequests {
   public deleteNote(id: string): Observable<ResponseModelNote> {
     return this.httpDeleteRequest(`api/tasks/${id}`);
   }
+
+  public updateNote(model: INote): Observable<ResponseModelNote> {
+    return this.httpPostRequest(`api/tasks/update`, model);
+  }
 }

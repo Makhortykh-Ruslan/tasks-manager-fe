@@ -1,17 +1,16 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   input,
-  Output,
   output,
 } from '@angular/core';
 import { INote } from '@core/interfaces/i-note';
 import { NgIf } from '@angular/common';
 import { CdkDrag } from '@angular/cdk/drag-drop';
 import { TmIconModule } from '@icons/tm-icon.module';
-import { TNoteActionsName } from '@core/types/t-note-actions-name';
 import { NoteActionModel } from '@core/models';
+import { CdkDragEnd } from '@angular/cdk/drag-drop';
+import { ActionsName, actionsName } from '@core/enums';
 
 @Component({
   selector: 'app-note-card',
@@ -25,11 +24,22 @@ export class NoteCardComponent {
   public data = input.required<INote>();
   public dragClass = input.required<string>();
 
-  // actions = output<NoteActionModel>();
-  @Output() actions = new EventEmitter<NoteActionModel>();
+  public outputActions = output<NoteActionModel>();
+  public ACTIONS_NAME = actionsName;
 
-  public handleAction(action: TNoteActionsName): void {
-    this.actions.emit({
+  public onDragEnd(event: CdkDragEnd): void {
+    const { x, y } = event.source.getFreeDragPosition();
+    this.outputActions.emit({
+      data: {
+        ...this.data(),
+        dragPosition: { x, y },
+      },
+      action: this.ACTIONS_NAME.UPDATE,
+    });
+  }
+
+  public handleAction(action: ActionsName): void {
+    this.outputActions.emit({
       data: this.data(),
       action,
     });

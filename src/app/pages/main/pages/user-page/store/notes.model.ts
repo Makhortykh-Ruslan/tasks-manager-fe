@@ -14,4 +14,5 @@ export enum NOTES_ACTIONS {
   ADD_NOTE = '[notes] ADD NOTE',
   DELETE_NOTE = '[notes] DELETE NOTE',
   RESET_NOTES = '[notes] RESET NOTES',
+  UPDATE_NOTES = '[notes] UPDATE NOTES',
 }

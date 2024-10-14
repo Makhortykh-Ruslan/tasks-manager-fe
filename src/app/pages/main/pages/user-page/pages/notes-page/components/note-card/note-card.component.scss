@@ -2,25 +2,11 @@
 @import 'assets/styles/mixins';
 
 .component {
-  position: relative;
-
-  &:hover {
-    .footer {
-      opacity: 1;
-      transition: 0.3s ease-in-out;
-      padding: 12px;
-      margin: 10px 0 0 0;
-    }
-  }
-}
-
-.container {
   width: 256px;
   padding: 16px;
   border: 1px solid $grey-3;
   border-radius: 8px;
 }
-
 
 .header {
   @include font-base(18px, 500, 28px, normal);
@@ -36,23 +22,9 @@
 }
 
 .footer {
-  opacity: 0;
-  margin: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 12px 12px 12px;
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
-  left: 0;
-  transition: 0.3s ease-in-out;
-  background-color: white;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-bottom: 1px solid $grey-3;
-  border-left: 1px solid $grey-3;
-  border-right: 1px solid $grey-3;
+  justify-content: space-between;
 }
 
 .icon {

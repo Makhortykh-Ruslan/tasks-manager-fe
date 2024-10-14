@@ -12,6 +12,7 @@ export class NoteFormGroupService {
     this.noteFormGroup = this.fb.group({
       [controlNames.TITLE]: [null, Validators.required],
       [controlNames.DESCRIPTION]: [null, Validators.required],
+      [controlNames.DRAG_POSITION]: [{ x: 10, y: 10 }],
     });
   }
 

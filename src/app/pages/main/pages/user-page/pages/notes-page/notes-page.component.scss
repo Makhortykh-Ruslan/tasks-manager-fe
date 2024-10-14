@@ -39,9 +39,35 @@
 .drag-boundary-place {
   width: 100%;
   min-height: 100vh;
-  border: 1px solid red;
+  //border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   gap: 27px;
 
+}
+
+.empty-place {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  & .icon {
+    @include svg-stroke($disabled-text);
+    @include svg-size(128px, 128px);
+  }
+
+  & .title {
+    @include font-base(24px, 500, normal, normal);
+
+    color: $black;
+  }
+
+  & .text {
+    @include font-base(16px, 400, normal, normal);
+
+    color: $grey-4;
+  }
 }

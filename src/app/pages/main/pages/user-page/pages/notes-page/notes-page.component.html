@@ -14,20 +14,30 @@
   <div class="mb-40">
     <app-input
       [leftIconName]="'magnifying_glass'"
-      [placeholder]="placeholders.SEARCH"
+      [placeholder]="PLACEHOLDERS.SEARCH"
     ></app-input>
   </div>
   <main class="drag-boundary-place">
-    <ng-container *ngIf="notes() as notes; else emptyTemp">
-      @for (note of notes.model; track note._id; let idx = $index) {
-        <app-note-card
-          [dragClass]="'.drag-boundary-place'"
-          [data]="note"
-          (actions)="handleActionsNoteCard($event, idx)"
-        ></app-note-card>
+    <ng-container *ngIf="notes() as notes">
+      @if (notes.model.length) {
+        @for (note of notes.model; track note._id; let idx = $index) {
+          <app-note-card
+            [dragClass]="'.drag-boundary-place'"
+            [data]="note"
+            (outputActions)="handleActionsNoteCard($event, idx)"
+          ></app-note-card>
+        }
+      } @else {
+        <aside class="empty-place">
+          <app-icon class="icon mb-40" [name]="'folder_open'"></app-icon>
+          <h4 class="title mb-20">Start by adding notes</h4>
+          <p class="text">
+            Any notes use in your life will live here.
+            <br />
+            Start note by adding your details
+          </p>
+        </aside>
       }
     </ng-container>
-
-    <ng-template #emptyTemp></ng-template>
   </main>
 </section>

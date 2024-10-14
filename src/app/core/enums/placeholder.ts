@@ -10,4 +10,5 @@ export const placeholders = {
   SEARCH: 'Search (⌘K)',
 } as const;
 
-export type TPlaceholder = (typeof placeholders)[keyof typeof placeholders];
+export type TPlaceholder =
+  (typeof placeholders)[keyof typeof placeholders];

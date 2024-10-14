@@ -1,3 +1,5 @@
+import { IPosition } from '@core/interfaces/i-position';
+
 export interface INote {
   title: string;
   description: string;
@@ -6,4 +8,5 @@ export interface INote {
   createdAt: Date;
   userId: string;
   _id: string;
+  dragPosition: IPosition;
 }

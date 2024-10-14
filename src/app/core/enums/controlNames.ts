@@ -6,6 +6,8 @@ export const controlNames = {
   TITLE: 'title',
   DESCRIPTION: 'description',
   USER: 'userId',
+  DRAG_POSITION: 'dragPosition',
 } as const;
 
-export type ControlNames = (typeof controlNames)[keyof typeof controlNames];
+export type ControlNames =
+  (typeof controlNames)[keyof typeof controlNames];
