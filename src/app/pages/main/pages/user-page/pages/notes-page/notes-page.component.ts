@@ -98,17 +98,15 @@ export class NotesPageComponent implements OnInit {
   }
 
   private deleteNote(data: INote, idx: number): void {
-    this.isShowLoading.set(true);
+    this.store.dispatch(new NotesSpace.DeleteNote(idx));
 
     this.notesService
       .deleteNote(data._id)
       .pipe(
         take(1),
-        tap((response) => {
-          this.alertService.throwSuccess(response.message);
-          this.store.dispatch(new NotesSpace.DeleteNote(idx));
-        }),
-        finalize(() => this.isShowLoading.set(false)),
+        tap((response) =>
+          this.alertService.throwSuccess(response.message),
+        ),
       )
       .subscribe();
   }

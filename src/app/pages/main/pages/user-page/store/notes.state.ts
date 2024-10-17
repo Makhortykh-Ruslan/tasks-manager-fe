@@ -8,7 +8,7 @@ import { ResponseModelNotes } from '@core/types';
 import { DEFAULT_RESPONSE_MODEL } from '@core/constants';
 
 @State({
-  name: 'notes',
+  name: 'notesState',
   defaults: DEFAULT_NOTES_STATE,
 })
 @Injectable()
@@ -28,7 +28,7 @@ export class NotesState {
     patchState({
       notes: {
         ...getState().notes,
-        model: [...getState().notes.model, payload],
+        model: [payload, ...getState().notes.model],
       },
     });
   }
@@ -75,5 +75,13 @@ export class NotesState {
     });
 
     return this.notesService.updateNote(note);
+  }
+
+  @Action(NotesSpace.UpdateNotes)
+  UpdateNotes(
+    { patchState }: StateContext<NotesStateModel>,
+    { payload }: NotesSpace.UpdateNotes,
+  ) {
+    patchState({ notes: payload });
   }
 }

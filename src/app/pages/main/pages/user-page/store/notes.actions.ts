@@ -1,5 +1,6 @@
 import { NOTES_ACTIONS } from './notes.model';
 import { INote } from '@core/interfaces/i-note';
+import { ResponseModelNotes } from '@core/types';
 
 export namespace NotesSpace {
   export class GetNotes {
@@ -21,10 +22,15 @@ export namespace NotesSpace {
   }
 
   export class UpdateNote {
-    static readonly type = NOTES_ACTIONS.UPDATE_NOTES;
+    static readonly type = NOTES_ACTIONS.UPDATE_NOTE;
     constructor(
       public readonly note: INote,
       public readonly idx: number,
     ) {}
+  }
+
+  export class UpdateNotes {
+    static readonly type = NOTES_ACTIONS.UPDATE_NOTES;
+    constructor(public readonly payload: ResponseModelNotes) {}
   }
 }

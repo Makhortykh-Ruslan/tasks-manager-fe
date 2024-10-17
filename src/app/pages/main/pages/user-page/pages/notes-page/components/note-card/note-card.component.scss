@@ -6,6 +6,13 @@
   padding: 16px;
   border: 1px solid $grey-3;
   border-radius: 8px;
+  background-color: $white;
+  cursor: move;
+}
+
+.actions {
+  display: none;
+  background-color: white;
 }
 
 .header {
