@@ -27,6 +27,13 @@ export const tmIconsChat: {
   name: 'chat',
   data: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.2399 29.6873C14.0756 31.3286 17.4114 31.8825 20.6254 31.2458C23.8394 30.6092 26.7122 28.8254 28.7081 26.2271C30.7041 23.6287 31.6869 20.3932 31.4735 17.1237C31.2601 13.8543 29.8649 10.774 27.5481 8.45719C25.2313 6.1404 22.1511 4.74523 18.8816 4.5318C15.6121 4.31837 12.3766 5.30126 9.77826 7.2972C7.17994 9.29314 5.39616 12.1659 4.75951 15.3799C4.12285 18.5939 4.67676 21.9297 6.31798 24.7655L4.55876 30.0178C4.49265 30.216 4.48306 30.4287 4.53105 30.6321C4.57905 30.8355 4.68273 31.0215 4.83048 31.1692C4.97823 31.317 5.16422 31.4206 5.36758 31.4686C5.57095 31.5166 5.78366 31.507 5.98188 31.4409L11.2399 29.6873Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 };
+export const tmIconsCheck: {
+  name: 'check';
+  data: string;
+} = {
+  name: 'check',
+  data: `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.875 6.75L4.5 9.375L10.5 3.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
 export const tmIconsDefaultIcon: {
   name: 'default_icon';
   data: string;
@@ -123,6 +130,7 @@ export type tmIcon =
   | 'bell_simple_ringing'
   | 'bell'
   | 'chat'
+  | 'check'
   | 'default_icon'
   | 'dots'
   | 'folder_open'
@@ -146,6 +154,7 @@ export const completeIconSet = [
   tmIconsBellSimpleRinging,
   tmIconsBell,
   tmIconsChat,
+  tmIconsCheck,
   tmIconsDefaultIcon,
   tmIconsDots,
   tmIconsFolderOpen,

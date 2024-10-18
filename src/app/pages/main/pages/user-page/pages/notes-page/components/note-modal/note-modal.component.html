@@ -1,6 +1,6 @@
 <section class="modal">
   <header class="modal-header">
-    <h3 class="title">Add a note</h3>
+    <h3 class="title">{{ headerName }}</h3>
     <app-icon [name]="'push_pin'"></app-icon>
   </header>
   <main class="modal-main">
@@ -36,7 +36,7 @@
       appButton
       (click)="handleAddNote()"
     >
-      Add note
+      {{ buttonName }}
     </button>
   </footer>
 </section>

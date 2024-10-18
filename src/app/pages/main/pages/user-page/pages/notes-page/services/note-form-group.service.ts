@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { controlNames } from '@core/enums';
+import { INote } from '@core/interfaces';
 
 @Injectable()
 export class NoteFormGroupService {
@@ -8,11 +9,19 @@ export class NoteFormGroupService {
 
   private fb = inject(FormBuilder);
 
-  public initNoteFormGroup(): void {
+  public initNoteFormGroup(data?: INote): void {
     this.noteFormGroup = this.fb.group({
-      [controlNames.TITLE]: [null, Validators.required],
-      [controlNames.DESCRIPTION]: [null, Validators.required],
-      [controlNames.DRAG_POSITION]: [{ x: 0, y: 0 }],
+      [controlNames.TITLE]: [
+        data ? data.title : null,
+        Validators.required,
+      ],
+      [controlNames.DESCRIPTION]: [
+        data ? data.description : null,
+        Validators.required,
+      ],
+      [controlNames.DRAG_POSITION]: [
+        data ? data.dragPosition : { x: 0, y: 0 },
+      ],
     });
   }
 

@@ -60,9 +60,10 @@ export class NotesPageComponent implements OnInit {
     this.initData();
   }
 
-  public onOpenNoteModal(): void {
+  public onOpenNoteModal(data?: INote): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
+    dialogConfig.data = data;
 
     this.dialog
       .open(NoteModalComponent, dialogConfig)
@@ -88,11 +89,13 @@ export class NotesPageComponent implements OnInit {
     idx: number,
   ): void {
     switch (action) {
-      case actionsName.UPDATE:
+      case actionsName.UPDATE_POSITION_NOTE:
         this.store.dispatch(new NotesSpace.UpdateNote(data, idx));
         break;
       case actionsName.DELETE:
         this.deleteNote(data, idx);
+        break;
+      case actionsName.UPDATE:
         break;
     }
   }

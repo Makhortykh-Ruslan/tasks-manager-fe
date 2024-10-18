@@ -39,7 +39,7 @@
 .drag-boundary-place {
   width: 100%;
   min-height: 100vh;
-  //border: 1px solid red;
+  border: 1px solid $blue-shadow;
   display: flex;
   flex-wrap: wrap;
   gap: 27px;

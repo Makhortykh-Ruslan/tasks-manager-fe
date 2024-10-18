@@ -5,7 +5,10 @@ import {
   OnInit,
 } from '@angular/core';
 import { ButtonDirective } from '@core/directives/button.directive';
-import { MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { TmIconModule } from '@icons/tm-icon.module';
 import { TextareaComponent } from '@core/components/textarea/textarea.component';
 import { controlNames, labels, placeholders } from '@core/enums';
@@ -15,6 +18,7 @@ import { AbstractErrorMessages } from '@core/abstract';
 import { ControlConverterPipe } from '@core/pipes';
 import { Store } from '@ngxs/store';
 import { UserState } from '@core/store/user-store/user.state';
+import { INote } from '@core/interfaces';
 
 @Component({
   selector: 'app-note-modal',
@@ -35,6 +39,8 @@ export class NoteModalComponent
   extends AbstractErrorMessages
   implements OnInit
 {
+  public modalData!: INote;
+
   public LABELS = labels;
   public PLACEHOLDER = placeholders;
   public CONTROL_NAME = controlNames;
@@ -44,8 +50,18 @@ export class NoteModalComponent
   private noteFormGroupService = inject(NoteFormGroupService, {
     self: true,
   });
+  private data = inject(MAT_DIALOG_DATA);
+
+  public get headerName(): string {
+    return this.modalData ? 'Edit note' : 'Add note';
+  }
+
+  public get buttonName(): string {
+    return this.modalData ? 'Update note' : 'Add note';
+  }
 
   public ngOnInit(): void {
+    this.modalData = this.data;
     this.dialogRef.addPanelClass('note-modal');
 
     this.initData();
@@ -63,7 +79,7 @@ export class NoteModalComponent
   }
 
   private initData(): void {
-    this.noteFormGroupService.initNoteFormGroup();
+    this.noteFormGroupService.initNoteFormGroup(this.modalData);
     this.formGroup = this.noteFormGroupService.getNoteFormGroup();
   }
 }

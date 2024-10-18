@@ -28,7 +28,7 @@ export class NotesState {
     patchState({
       notes: {
         ...getState().notes,
-        model: [payload, ...getState().notes.model],
+        model: [...getState().notes.model, payload],
       },
     });
   }

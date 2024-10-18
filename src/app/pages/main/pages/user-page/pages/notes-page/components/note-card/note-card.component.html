@@ -1,11 +1,20 @@
 <ng-container *ngIf="data() as note">
   <aside
     class="component"
+    cdkDrag
     [cdkDragFreeDragPosition]="note.dragPosition"
     [cdkDragBoundary]="dragClass()"
     (cdkDragEnded)="onDragEnd($event)"
-    cdkDrag
+    [class.select]="isSelectCard"
+    (click)="handleAction(ACTIONS_NAME.UPDATE)"
   >
+    <span
+      class="circle"
+      [class.select]="isSelectCard"
+      (click)="handleSelectCard()"
+    >
+      <app-icon class="icon" [name]="'check'"></app-icon>
+    </span>
     <header class="header mb-16">{{ note.title || '-' }}</header>
     <main class="main mb-16">{{ note.description || '-' }}</main>
     <footer class="footer">

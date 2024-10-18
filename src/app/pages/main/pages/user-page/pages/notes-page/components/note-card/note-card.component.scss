@@ -2,12 +2,56 @@
 @import 'assets/styles/mixins';
 
 .component {
-  width: 256px;
+  min-width: 256px;
   padding: 16px;
   border: 1px solid $grey-3;
   border-radius: 8px;
   background-color: $white;
-  cursor: move;
+  cursor: pointer;
+  position: relative;
+
+  &.select {
+    border-color: $blue;
+  }
+
+  &:hover {
+    & .footer {
+      transition: 0.2s ease-in-out;
+      opacity: 1;
+      height: 20px;
+    }
+  }
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid $grey-3;
+  left: -7px;
+  top: -7px;
+
+  transition: 0.2s ease-in-out;
+
+  & .icon {
+    opacity: 0;
+  }
+
+  &.select {
+    @include svg-stroke($white);
+
+    transition: 0.2s ease-in-out;
+    background-color: $blue;
+
+    & .icon {
+      opacity: 1;
+    }
+  }
 }
 
 .actions {
@@ -32,16 +76,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+  height: 0;
 
-.icon {
-  cursor: pointer;
+  .icon {
+    cursor: pointer;
+    padding: 10px;
 
-  padding: 10px;
-
-  &:hover {
-    background-color: $blue-3;
-    transition: 0.2s ease-in-out;
-    border-radius: 6px;
+    &:hover {
+      background-color: $blue-3;
+      transition: 0.2s ease-in-out;
+      border-radius: 6px;
+    }
   }
 }
