@@ -7,7 +7,7 @@ export const placeholders = {
   ENTER_DESCRIPTION: 'Enter a description...',
 
   // Search //
-  SEARCH: 'Search (⌘K)',
+  SEARCH: 'Search',
 } as const;
 
 export type TPlaceholder =
