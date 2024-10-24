@@ -2,7 +2,10 @@
   <header class="header">
     <app-logo></app-logo>
 
-    <div class="hamburger" (click)="handleOpenBarMobile()">hamburger</div>
+    <app-hamburger
+      class="hamburger"
+      (change)="handleOpenBarMobile($event)"
+    ></app-hamburger>
   </header>
   <nav class="nav" [class.active]="isShowBarMobile()">
     <ul class="nav-list">

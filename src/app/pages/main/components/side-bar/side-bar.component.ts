@@ -23,6 +23,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { IUser } from '@core/interfaces/i-user';
 import { UserSpace } from '@core/store/user-store/user.actions';
 import { appRoutes } from '@core/constants';
+import { HamburgerComponent } from '@core/components/hamburger/hamburger.component';
 
 @Component({
   selector: 'app-side-bar',
@@ -36,6 +37,7 @@ import { appRoutes } from '@core/constants';
     AvatarComponent,
     NgClass,
     NgIf,
+    HamburgerComponent,
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss',
@@ -59,8 +61,8 @@ export class SideBarComponent implements OnInit {
     this.initData();
   }
 
-  public handleOpenBarMobile(): void {
-    this.isShowBarMobile.update((val) => !val);
+  public handleOpenBarMobile(event: boolean): void {
+    this.isShowBarMobile.set(event);
   }
 
   public closeBarMobile(): void {

@@ -1,0 +1,31 @@
+@import 'assets/styles/vars';
+
+.component {
+  display: grid;
+  gap: 5px;
+
+  & > * {
+    width: 30px;
+    height: 3px;
+    border-radius: 20px;
+    background-color: $grey-2;
+    transition: 0.1s ease-out;
+  }
+
+  &.active {
+    transition: 0.1s ease-out;
+
+    & .elem:nth-child(1) {
+      transform: translateY(3px) rotateZ(45deg);
+    }
+
+    & .elem:nth-child(2) {
+      display: none;
+    }
+
+    & .elem:nth-child(3) {
+      transform: translateY(-5px) rotateZ(-45deg);
+
+    }
+  }
+}
