@@ -46,6 +46,8 @@ export const USER_ROUTES: Routes = [
     path: '',
     component: UserPageComponent,
     children,
-    providers: [importProvidersFrom(NgxsModule.forFeature([NotesState]))],
+    providers: [
+      importProvidersFrom(NgxsModule.forFeature([NotesState])),
+    ],
   },
 ];

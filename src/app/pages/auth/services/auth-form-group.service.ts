@@ -32,7 +32,7 @@ export class AuthFormGroupService {
 
   public initRegistrationFormGroup(): void {
     this.registrationFormGroup = this.fb.group({
-      [controlNames.USER_NAME]: [null, [Validators.required]],
+      [controlNames.USER_NAME]: [null, Validators.required],
       [controlNames.EMAIL]: [
         null,
         [Validators.required, Validators.pattern(EMAIL_REGEXP)],
