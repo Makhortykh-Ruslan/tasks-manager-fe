@@ -10,7 +10,9 @@ const children: Routes = [
   {
     path: appRoutes.login.routerPath,
     loadComponent: () =>
-      import('./pages/login/login.component').then((c) => c.LoginComponent),
+      import('./pages/login/login.component').then(
+        (c) => c.LoginComponent,
+      ),
   },
   {
     path: appRoutes.registration.routerPath,
@@ -31,6 +33,8 @@ export const AUTH_ROUTES: Routes = [
     path: '',
     component: AuthComponent,
     children,
-    providers: [importProvidersFrom(NgxsModule.forFeature([AuthState]))],
+    providers: [
+      importProvidersFrom(NgxsModule.forFeature([AuthState])),
+    ],
   },
 ];

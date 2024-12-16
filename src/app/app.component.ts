@@ -13,11 +13,11 @@ import { AsyncPipe, NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
   template: `
-    <app-loader
-      *ngIf="loaderSignal()"
-      [isOverlay]="true"
-    ></app-loader>
-    <router-outlet></router-outlet>
+    @if (loaderSignal()) {
+      <app-loader [isOverlay]="true"></app-loader>
+    } @else {
+      <router-outlet></router-outlet>
+    }
   `,
   standalone: true,
   imports: [RouterOutlet, LoaderComponent, AsyncPipe, NgIf],
