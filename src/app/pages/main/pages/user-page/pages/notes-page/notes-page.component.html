@@ -18,7 +18,7 @@
     ></app-input>
   </div>
   <main class="drag-boundary-place">
-    <ng-container *ngIf="notes() as notes">
+    @if (notes(); as notes) {
       @if (notes.model.length) {
         @for (note of notes.model; track note._id; let idx = $index) {
           <app-note-card
@@ -38,6 +38,6 @@
           </p>
         </aside>
       }
-    </ng-container>
+    }
   </main>
 </section>
