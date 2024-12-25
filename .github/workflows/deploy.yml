@@ -1,4 +1,4 @@
-name: chiller.dev-tasks-manager
+name: Deploy to Vercel
 
 on:
   push:
@@ -26,8 +26,6 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v21
+        uses: vercel/actions@v1
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod'
-          working-directory: ./
+          token: ${{ secrets.VERCEL_TOKEN }}
