@@ -30,6 +30,8 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Deploy to Vercel
-        uses: vercel/actions@v1
+        uses: amondnet/vercel-action@v20
         with:
-          token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
+          working-directory: ./
