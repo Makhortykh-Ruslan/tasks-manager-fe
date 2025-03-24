@@ -1,42 +1,33 @@
 import {
-  HTTP_INTERCEPTORS,
-  HttpClientModule,
+  provideHttpClient,
+  withInterceptors,
 } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
-import { ApplicationConfig } from '@angular/platform-browser';
-import { ApiInterceptor } from '@core/interceptors/api.interceptor';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsModule } from '@ngxs/store';
+import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
+import { provideStore } from '@ngxs/store';
 
 import { environment } from '../environments/environment';
 
 import { appRoutingProviders } from './app-routing';
-import { ErrorInterceptor } from '@core/interceptors/error.interceptor';
 import { UserState } from '@core/store/user-store/user.state';
+import { apiInterceptor, errorInterceptor } from '@core/interceptors';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { AuthState } from '@core/store/auth-store/auth.state';
 
-export const appConfig: ApplicationConfig = {
+export const appConfig = {
   providers: [
     ...appRoutingProviders,
-    importProvidersFrom(HttpClientModule),
-    importProvidersFrom(
-      NgxsModule.forRoot([UserState], {
-        developmentMode: !environment.production,
-      }),
+    provideAnimations(),
+    provideHttpClient(
+      withInterceptors([apiInterceptor, errorInterceptor]),
     ),
-    importProvidersFrom(
-      NgxsReduxDevtoolsPluginModule.forRoot({
+    provideStore(
+      [UserState, AuthState],
+      {
+        developmentMode: !environment.production,
+      },
+      withNgxsReduxDevtoolsPlugin({
         disabled: environment.production,
       }),
     ),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true,
-    },
   ],
 };

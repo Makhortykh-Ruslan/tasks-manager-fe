@@ -2,7 +2,6 @@ import { provideRouter, Routes } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 
 import { environment } from '../environments/environment';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { SessionGuard } from '@core/guards/session.guard';
 
 const routes = (): Routes => {
@@ -43,7 +42,4 @@ const routes = (): Routes => {
   return res;
 };
 
-export const appRoutingProviders = [
-  provideRouter(routes()),
-  provideAnimations(),
-];
+export const appRoutingProviders = [provideRouter(routes())];

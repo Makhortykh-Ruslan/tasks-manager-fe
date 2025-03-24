@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   standalone: true,
 })
 export class ControlConverterPipe implements PipeTransform {
-  transform(control: unknown): FormControl {
+  public transform(control: unknown): FormControl {
     return control as FormControl;
   }
 }
