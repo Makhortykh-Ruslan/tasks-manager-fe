@@ -44,7 +44,9 @@ import { NoteActionModel } from '@core/models';
 })
 export class NotesPageComponent implements OnInit {
   public isShowLoading = signal<boolean>(false);
-  public notes: Signal<ResponseModelNotes> = this.store.selectSignal(NotesState.notes);
+  public notes: Signal<ResponseModelNotes> = this.store.selectSignal(
+    NotesState.notes,
+  );
 
   public PLACEHOLDERS = placeholders;
 
@@ -71,7 +73,9 @@ export class NotesPageComponent implements OnInit {
         take(1),
         filter(Boolean),
         tap(() => this.isShowLoading.set(true)),
-        switchMap((response: INote) => this.notesService.createNote(response)),
+        switchMap((response: INote) =>
+          this.notesService.createNote(response),
+        ),
         tap((response) => {
           this.store.dispatch(new NotesSpace.AddNote(response.model));
           this.alertService.throwSuccess(response.message);
@@ -81,7 +85,10 @@ export class NotesPageComponent implements OnInit {
       .subscribe();
   }
 
-  public handleActionsNoteCard({ action, data }: NoteActionModel, idx: number): void {
+  public handleActionsNoteCard(
+    { action, data }: NoteActionModel,
+    idx: number,
+  ): void {
     switch (action) {
       case actionsName.UPDATE_POSITION_NOTE:
         this.store.dispatch(new NotesSpace.UpdateNote(data, idx));
@@ -101,7 +108,9 @@ export class NotesPageComponent implements OnInit {
       .deleteNote(data._id)
       .pipe(
         take(1),
-        tap((response) => this.alertService.throwSuccess(response.message)),
+        tap((response) =>
+          this.alertService.throwSuccess(response.message),
+        ),
       )
       .subscribe();
   }

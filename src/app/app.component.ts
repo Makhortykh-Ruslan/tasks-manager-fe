@@ -15,9 +15,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
   template: `
     @if (loaderSignal()) {
       <app-loader [isOverlay]="true"></app-loader>
-    } @else {
-      <router-outlet></router-outlet>
     }
+    <router-outlet></router-outlet>
   `,
   standalone: true,
   imports: [RouterOutlet, LoaderComponent, AsyncPipe, NgIf],
