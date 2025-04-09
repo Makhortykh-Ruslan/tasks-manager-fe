@@ -1,6 +1,6 @@
-@import 'assets/styles/components/page';
-@import 'assets/styles/vars';
-@import 'assets/styles/mixins';
+@use 'components/page' as *;
+@use 'vars' as *;
+@use 'mixins' as *;
 
 .page {
   @include page-wrapper();

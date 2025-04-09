@@ -10,7 +10,9 @@ export class AuthService extends AbstractHttpRequests {
     return this.httpPostRequest(`api/auth/login`, model);
   }
 
-  public registrationUser(model: IUser): Observable<ResponseModelCreateUser> {
+  public registrationUser(
+    model: IUser,
+  ): Observable<ResponseModelCreateUser> {
     return this.httpPostRequest(`api/user/create`, model);
   }
 }

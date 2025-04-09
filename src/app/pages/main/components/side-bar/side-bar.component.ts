@@ -27,7 +27,6 @@ import { HamburgerComponent } from '@core/components/hamburger/hamburger.compone
 
 @Component({
   selector: 'app-side-bar',
-  standalone: true,
   imports: [
     TmIconModule,
     LogoComponent,
@@ -42,6 +41,7 @@ import { HamburgerComponent } from '@core/components/hamburger/hamburger.compone
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class SideBarComponent implements OnInit {
   public currentUser: Signal<IUser> = this.store.selectSignal(

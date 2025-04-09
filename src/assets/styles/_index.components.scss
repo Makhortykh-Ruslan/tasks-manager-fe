@@ -1,10 +1,10 @@
-@import 'vars';
-@import 'fonts';
-@import 'mixins';
-@import 'margins';
-@import 'extends';
+@forward 'vars';
+@forward 'fonts';
+@forward 'mixins';
+@forward 'margins';
+@forward 'extends';
 
-@import 'components/button';
-@import 'components/page';
-@import 'components/modal';
-@import 'components/alert';
+@forward 'components/button';
+@forward 'components/page';
+@forward 'components/modal';
+@forward 'components/alert';

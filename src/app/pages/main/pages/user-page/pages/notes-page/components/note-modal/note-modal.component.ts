@@ -22,7 +22,6 @@ import { INote } from '@core/interfaces';
 
 @Component({
   selector: 'app-note-modal',
-  standalone: true,
   imports: [
     ButtonDirective,
     TmIconModule,

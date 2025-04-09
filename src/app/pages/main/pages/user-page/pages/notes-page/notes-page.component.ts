@@ -9,7 +9,7 @@ import { InputComponent } from '@core/components/input/input.component';
 import { TmIconModule } from '@icons/tm-icon.module';
 import { actionsName, placeholders } from '@core/enums';
 import { ButtonDirective } from '@core/directives/button.directive';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { NoteModalComponent } from './components/note-modal/note-modal.component';
 import { filter, finalize, switchMap, take, tap } from 'rxjs';
@@ -20,14 +20,12 @@ import { LoaderComponent } from '@core/components/loader/loader.component';
 import { NotesState } from '../../store/notes.state';
 import { ResponseModelNotes } from '@core/types';
 import { NoteCardComponent } from './components/note-card/note-card.component';
-import { CdkDrag } from '@angular/cdk/drag-drop';
 import { AlertService } from '@core/services';
 import { NotesService } from '../../services/notes.service';
 import { NoteActionModel } from '@core/models';
 
 @Component({
   selector: 'app-notes-page',
-  standalone: true,
   imports: [
     InputComponent,
     TmIconModule,
@@ -35,8 +33,6 @@ import { NoteActionModel } from '@core/models';
     NgIf,
     LoaderComponent,
     NoteCardComponent,
-    CdkDrag,
-    AsyncPipe,
   ],
   templateUrl: './notes-page.component.html',
   styleUrl: './notes-page.component.scss',

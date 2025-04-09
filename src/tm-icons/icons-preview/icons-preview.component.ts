@@ -1,5 +1,9 @@
 import { NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { distinctUntilChanged, Subscription } from 'rxjs';
 
@@ -10,7 +14,6 @@ import { completeIconSet, TmIcon } from '../tm-icons';
   selector: 'app-icons-preview',
   templateUrl: './icons-preview.component.html',
   styleUrls: ['./icons-preview.component.scss'],
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, TmIconModule, NgForOf],
 })

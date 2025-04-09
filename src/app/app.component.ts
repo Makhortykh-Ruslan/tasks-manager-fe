@@ -8,7 +8,6 @@ import { completeIconSet } from '@icons/tm-icons';
 import { TmIconsService } from '@icons/tm-icons.service';
 import { LoaderComponent } from '@core/components/loader/loader.component';
 import { MainLoaderService } from '@core/services';
-import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +17,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
     }
     <router-outlet></router-outlet>
   `,
-  standalone: true,
-  imports: [RouterOutlet, LoaderComponent, AsyncPipe, NgIf],
+  imports: [RouterOutlet, LoaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {

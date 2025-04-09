@@ -20,6 +20,7 @@ import { TmIconsService } from './tm-icons.service';
     ':host::ng-deep svg{display: flex; justify-content: center; align-items: center}',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class TmIconComponent {
   private svgIcon!: SVGElement;

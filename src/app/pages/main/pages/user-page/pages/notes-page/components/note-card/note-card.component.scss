@@ -1,5 +1,5 @@
-@import 'assets/styles/vars';
-@import 'assets/styles/mixins';
+@use 'vars' as *;
+@use 'mixins' as *;
 
 .component {
   min-width: 256px;

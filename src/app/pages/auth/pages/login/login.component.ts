@@ -6,7 +6,6 @@ import {
   signal,
 } from '@angular/core';
 import { AbstractErrorMessages } from '@core/abstract/abstract-error-messages';
-import { CheckboxComponent } from '@core/components/checkbox/checkbox.component';
 import { InputComponent } from '@core/components/input/input.component';
 import { LogoComponent } from '@core/components/logo/logo.component';
 import { ButtonDirective } from '@core/directives/button.directive';
@@ -19,7 +18,6 @@ import { finalize, take, tap } from 'rxjs';
 
 import { AuthFormGroupService } from '../../services/auth-form-group.service';
 import { LoaderComponent } from '@core/components/loader/loader.component';
-import { NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 import { AuthSpace } from '@core/store/auth-store/auth.actions';
@@ -29,7 +27,6 @@ import { DestroyService } from '@core/services';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  standalone: true,
   styleUrls: ['./login.component.scss'],
   providers: [AuthFormGroupService, DestroyService, AuthService],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,11 +34,10 @@ import { DestroyService } from '@core/services';
     InputComponent,
     LogoComponent,
     ButtonDirective,
-    CheckboxComponent,
     ControlConverterPipe,
     LoaderComponent,
-    NgIf,
   ],
+  standalone: true,
 })
 export class LoginComponent
   extends AbstractErrorMessages

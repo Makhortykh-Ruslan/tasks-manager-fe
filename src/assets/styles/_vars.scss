@@ -1,4 +1,4 @@
-@import 'fonts';
+@use 'fonts' as fonts;
 
 $gray: #344054;
 $blue: #1849a9;
@@ -21,7 +21,7 @@ $warm: #fa9f47;
 $black-2: #0C111D;
 
 // typography
-$font-family-base: $satoshi;
-$font-family-fixel: $fixel-text;
+$font-family-base: fonts.$satoshi;
+$font-family-fixel: fonts.$fixel-text;
 $font-size-base: 14px;
 $line-height-base: 20px;

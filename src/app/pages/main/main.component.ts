@@ -5,7 +5,6 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  standalone: true,
   styleUrls: ['./main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, SideBarComponent],

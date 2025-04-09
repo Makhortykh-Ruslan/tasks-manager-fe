@@ -1,6 +1,6 @@
-@import 'assets/styles/vars';
-@import 'assets/styles/mixins';
-@import 'assets/styles/components/modal';
+@use 'vars' as *;
+@use 'mixins' as *;
+@use 'components/modal' as *;
 
 ::ng-deep .note-modal {
   @include tm-modal(850px);
@@ -11,8 +11,7 @@
   }
 
   .title {
-    @include font-base(14px, 400, normal, normal, $fixel-text);
-
+    @include font-base(14px, 400, normal, normal, $font-family-fixel);
     color: $grey-4;
   }
 }

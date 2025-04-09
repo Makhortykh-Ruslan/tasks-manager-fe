@@ -7,7 +7,6 @@ import {
   signal,
 } from '@angular/core';
 import { ButtonDirective } from '@core/directives/button.directive';
-import { CheckboxComponent } from '@core/components/checkbox/checkbox.component';
 import { ControlConverterPipe } from '@core/pipes/control-converter.pipe';
 import { InputComponent } from '@core/components/input/input.component';
 import { LoaderComponent } from '@core/components/loader/loader.component';
@@ -24,12 +23,10 @@ import { AuthSpace } from '@core/store/auth-store/auth.actions';
 
 @Component({
   selector: 'app-registration',
-  standalone: true,
   providers: [AuthFormGroupService, AuthService],
   imports: [
     CommonModule,
     ButtonDirective,
-    CheckboxComponent,
     ControlConverterPipe,
     InputComponent,
     LoaderComponent,
@@ -38,6 +35,7 @@ import { AuthSpace } from '@core/store/auth-store/auth.actions';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class RegistrationComponent
   extends AbstractErrorMessages

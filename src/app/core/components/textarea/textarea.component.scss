@@ -1,6 +1,6 @@
-@import 'assets/styles/mixins';
-@import 'assets/styles/vars';
-@import 'assets/styles/extends';
+@use 'mixins' as *;
+@use 'vars' as *;
+@use 'extends' as *;
 
 .component {
   display: grid;

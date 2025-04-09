@@ -1,6 +1,6 @@
-@import 'assets/styles/vars';
-@import 'assets/styles/mixins';
-@import 'assets/styles/extends';
+@use 'vars' as *;
+@use 'mixins' as *;
+@use 'extends' as *;
 
 @mixin tm-modal($width: 500px) {
   .mat-mdc-dialog-surface {

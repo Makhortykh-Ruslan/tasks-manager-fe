@@ -1,4 +1,4 @@
-@import 'assets/styles/index.components';
+@use 'index.components' as *;
 
 html, body { height: 100%; }
 body { @extend .scroll-bar; margin: 0; }

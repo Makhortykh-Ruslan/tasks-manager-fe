@@ -1,6 +1,6 @@
-@import 'assets/styles/mixins';
-@import 'assets/styles/vars';
-@import 'assets/styles/media';
+@use 'mixins' as *;
+@use 'vars' as *;
+@use 'media' as *;
 
 .component {
   padding: 32px 20px 32px 24px;

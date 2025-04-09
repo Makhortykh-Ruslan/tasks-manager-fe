@@ -19,7 +19,13 @@ export class ButtonDirective implements OnInit {
   private elementRef = inject(ElementRef);
 
   public ngOnInit(): void {
-    this.renderer2.addClass(this.elementRef.nativeElement, 'tm-button');
-    this.renderer2.addClass(this.elementRef.nativeElement, this.color);
+    this.renderer2.addClass(
+      this.elementRef.nativeElement,
+      'tm-button',
+    );
+    this.renderer2.addClass(
+      this.elementRef.nativeElement,
+      this.color,
+    );
   }
 }
