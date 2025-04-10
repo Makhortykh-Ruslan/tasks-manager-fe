@@ -6,38 +6,37 @@ import {
   signal,
 } from '@angular/core';
 import { AbstractErrorMessages } from '@core/abstract/abstract-error-messages';
-import { InputComponent } from '@core/components/input/input.component';
-import { LogoComponent } from '@core/components/logo/logo.component';
-import { ButtonDirective } from '@core/directives/button.directive';
 import { controlNames } from '@core/enums';
 import { labels } from '@core/enums/labels';
 import { placeholders } from '@core/enums/placeholder';
-import { ControlConverterPipe } from '@core/pipes/control-converter.pipe';
 import { AuthService } from '@core/services/auth.service';
 import { finalize, take, tap } from 'rxjs';
 
 import { AuthFormGroupService } from '../../services/auth-form-group.service';
-import { LoaderComponent } from '@core/components/loader/loader.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 import { AuthSpace } from '@core/store/auth-store/auth.actions';
 import { Store } from '@ngxs/store';
-import { DestroyService } from '@core/services';
+import { LogoComponent } from '@core/components/logo/logo.component';
+import { InputComponent } from '@core/components/input/input.component';
+import { ControlConverterPipe } from '@core/pipes';
+import { LoaderComponent } from '@core/components/loader/loader.component';
+import { ButtonDirective } from '@core/directives/button.directive';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [AuthFormGroupService, DestroyService, AuthService],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   imports: [
-    InputComponent,
     LogoComponent,
-    ButtonDirective,
+    InputComponent,
     ControlConverterPipe,
     LoaderComponent,
+    ButtonDirective,
   ],
-  standalone: true,
+  providers: [AuthFormGroupService, AuthService],
 })
 export class LoginComponent
   extends AbstractErrorMessages

@@ -15,14 +15,20 @@ export class AuthFormGroupService {
 
   public initLoginFormGroup(): void {
     this.loginFormGroup = this.fb.group({
-      [controlNames.EMAIL]: [
-        null,
-        [Validators.required, Validators.pattern(EMAIL_REGEXP)],
-      ],
-      [controlNames.PASSWORD]: [
-        null,
-        [Validators.required, Validators.pattern(PASSWORD_REGEXP)],
-      ],
+      [controlNames.EMAIL]: this.fb.control<string>('', {
+        nonNullable: true,
+        validators: [
+          Validators.required,
+          Validators.pattern(EMAIL_REGEXP),
+        ],
+      }),
+      [controlNames.PASSWORD]: this.fb.control<string>('', {
+        nonNullable: true,
+        validators: [
+          Validators.required,
+          Validators.pattern(PASSWORD_REGEXP),
+        ],
+      }),
     });
   }
 
@@ -32,15 +38,24 @@ export class AuthFormGroupService {
 
   public initRegistrationFormGroup(): void {
     this.registrationFormGroup = this.fb.group({
-      [controlNames.USER_NAME]: [null, Validators.required],
-      [controlNames.EMAIL]: [
-        null,
-        [Validators.required, Validators.pattern(EMAIL_REGEXP)],
-      ],
-      [controlNames.PASSWORD]: [
-        null,
-        [Validators.required, Validators.pattern(PASSWORD_REGEXP)],
-      ],
+      [controlNames.USER_NAME]: this.fb.control<string>('', {
+        nonNullable: true,
+        validators: Validators.required,
+      }),
+      [controlNames.EMAIL]: this.fb.control<string>('', {
+        nonNullable: true,
+        validators: [
+          Validators.required,
+          Validators.pattern(EMAIL_REGEXP),
+        ],
+      }),
+      [controlNames.PASSWORD]: this.fb.control<string>('', {
+        nonNullable: true,
+        validators: [
+          Validators.required,
+          Validators.pattern(PASSWORD_REGEXP),
+        ],
+      }),
     });
   }
 
