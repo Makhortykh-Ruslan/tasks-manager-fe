@@ -19,10 +19,12 @@ import { MainLoaderService } from '@core/services';
   `,
   imports: [RouterOutlet, LoaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class AppComponent {
   public loaderSignal: WritableSignal<boolean> =
     this.mainLoaderService.getLoaderState();
+
   constructor(
     private epIconsService: TmIconsService,
     private mainLoaderService: MainLoaderService,

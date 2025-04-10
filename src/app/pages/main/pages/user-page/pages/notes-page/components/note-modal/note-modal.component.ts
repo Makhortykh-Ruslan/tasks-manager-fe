@@ -33,6 +33,7 @@ import { INote } from '@core/interfaces';
   templateUrl: './note-modal.component.html',
   styleUrl: './note-modal.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class NoteModalComponent
   extends AbstractErrorMessages

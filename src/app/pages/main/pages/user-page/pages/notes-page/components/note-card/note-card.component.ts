@@ -18,6 +18,7 @@ import { ActionsName, actionsName } from '@core/enums';
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class NoteCardComponent {
   public data = input.required<INote>();

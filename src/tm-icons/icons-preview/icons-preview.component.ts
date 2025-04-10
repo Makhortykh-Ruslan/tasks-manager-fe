@@ -16,6 +16,7 @@ import { completeIconSet, TmIcon } from '../tm-icons';
   styleUrls: ['./icons-preview.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, TmIconModule, NgForOf],
+  standalone: true,
 })
 export class IconsPreviewComponent implements OnInit {
   public icons = completeIconSet;

@@ -37,6 +37,7 @@ import { NoteActionModel } from '@core/models';
   templateUrl: './notes-page.component.html',
   styleUrl: './notes-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class NotesPageComponent implements OnInit {
   public isShowLoading = signal<boolean>(false);
