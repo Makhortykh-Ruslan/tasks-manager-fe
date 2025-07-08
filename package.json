@@ -23,13 +23,12 @@
     "@angular/platform-browser": "^20.0.5",
     "@angular/platform-browser-dynamic": "^20.0.5",
     "@angular/router": "^20.0.5",
-    "@ngxs/store": "^20.0.2",
     "@ngxs/devtools-plugin": "^20.0.2",
     "@ngxs/logger-plugin": "^20.0.2",
+    "@ngxs/store": "^20.0.2",
     "rxjs": "~7.8.1",
     "svg-to-ts": "^8.6.1",
-    "tslib": "^2.6.2",
-    "zone.js": "~0.15.1"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.0.5",
@@ -54,5 +53,4 @@
     "prettier": "^3.3.3",
     "typescript": "~5.8.0"
   }
-
 }
