@@ -9,5 +9,4 @@ export const controlNames = {
   DRAG_POSITION: 'dragPosition',
 } as const;
 
-export type ControlNames =
-  (typeof controlNames)[keyof typeof controlNames];
+export type ControlNames = (typeof controlNames)[keyof typeof controlNames];

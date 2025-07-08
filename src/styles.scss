@@ -1,7 +1,13 @@
 @use 'index.components' as *;
 
-html, body { height: 100%; }
-body { @extend .scroll-bar; margin: 0; }
+html,
+body {
+  height: 100%;
+}
+body {
+  @extend .scroll-bar;
+  margin: 0;
+}
 
 * {
   margin: 0;

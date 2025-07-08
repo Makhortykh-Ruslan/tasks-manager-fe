@@ -2,12 +2,7 @@ type AuthRoutingPath = 'auth' | 'login' | 'registration';
 
 type RolePageRoutingPath = 'admin' | 'user';
 
-type MainPageRoutingPath =
-  | 'notes'
-  | 'reminders'
-  | 'archive'
-  | 'removed'
-  | 'settings';
+type MainPageRoutingPath = 'notes' | 'reminders' | 'archive' | 'removed' | 'settings';
 
 type CoreRoutingPath = 'icons';
 

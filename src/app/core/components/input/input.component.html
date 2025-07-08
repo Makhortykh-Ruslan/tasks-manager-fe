@@ -5,10 +5,7 @@
     <span class="required" *ngIf="isRequired">*</span>
   </label>
 
-  <div
-    class="component-input"
-    [class.error]="formControl.errors && formControl.dirty"
-  >
+  <div class="component-input" [class.error]="formControl.errors && formControl.dirty">
     <app-icon
       class="icon left"
       *ngIf="leftIconName() as iconName"

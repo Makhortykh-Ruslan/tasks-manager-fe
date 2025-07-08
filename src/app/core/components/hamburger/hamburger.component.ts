@@ -29,9 +29,7 @@ export class HamburgerComponent {
 
   @HostListener('document:mousedown', ['$event'])
   public onClick(event: MouseEvent): void {
-    const isContains = !!this.elementRef.nativeElement.contains(
-      event.target,
-    );
+    const isContains = !!this.elementRef.nativeElement.contains(event.target);
 
     if (!isContains) {
       this.value.set(false);

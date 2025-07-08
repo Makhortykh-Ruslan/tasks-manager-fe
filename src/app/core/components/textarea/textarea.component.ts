@@ -1,18 +1,14 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TLabels, TPlaceholder } from '@core/enums';
 import { NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-textarea',
-    imports: [NgIf, ReactiveFormsModule],
-    templateUrl: './textarea.component.html',
-    styleUrl: './textarea.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-textarea',
+  imports: [NgIf, ReactiveFormsModule],
+  templateUrl: './textarea.component.html',
+  styleUrl: './textarea.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextareaComponent {
   public label = input<TLabels>();

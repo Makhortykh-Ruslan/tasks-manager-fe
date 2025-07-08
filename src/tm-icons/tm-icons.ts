@@ -148,8 +148,7 @@ export interface TmIcon {
   name: tmIcon;
   data: string;
 }
-export type TmIconNameSubset<T extends Readonly<TmIcon[]>> =
-  T[number]['name'];
+export type TmIconNameSubset<T extends Readonly<TmIcon[]>> = T[number]['name'];
 export const completeIconSet = [
   tmIconsArchive,
   tmIconsBellSimpleRinging,

@@ -49,9 +49,7 @@ export class NotesState {
 
   @Action(NotesSpace.GetNotes)
   GetNotes({ patchState }: StateContext<NotesStateModel>) {
-    return this.notesService
-      .getNotes()
-      .pipe(tap((notes) => patchState({ notes })));
+    return this.notesService.getNotes().pipe(tap((notes) => patchState({ notes })));
   }
 
   @Action(NotesSpace.ResetNotes)

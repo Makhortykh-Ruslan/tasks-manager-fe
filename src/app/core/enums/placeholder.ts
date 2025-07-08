@@ -10,5 +10,4 @@ export const placeholders = {
   SEARCH: 'Search',
 } as const;
 
-export type TPlaceholder =
-  (typeof placeholders)[keyof typeof placeholders];
+export type TPlaceholder = (typeof placeholders)[keyof typeof placeholders];

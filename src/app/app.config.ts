@@ -1,7 +1,4 @@
-import {
-  provideHttpClient,
-  withInterceptors,
-} from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
 import { provideStore } from '@ngxs/store';
 
@@ -13,14 +10,11 @@ import { apiInterceptor, errorInterceptor } from '@core/interceptors';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { AuthState } from '@core/store/auth-store/auth.state';
 
-
 export const appConfig = {
   providers: [
     ...appRoutingProviders,
     provideAnimations(),
-    provideHttpClient(
-      withInterceptors([apiInterceptor, errorInterceptor]),
-    ),
+    provideHttpClient(withInterceptors([apiInterceptor, errorInterceptor])),
     provideStore(
       [UserState, AuthState],
       {

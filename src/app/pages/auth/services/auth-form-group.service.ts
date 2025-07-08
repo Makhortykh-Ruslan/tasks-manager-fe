@@ -1,9 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  EMAIL_REGEXP,
-  PASSWORD_REGEXP,
-} from '@core/constants/reg-exp';
+import { EMAIL_REGEXP, PASSWORD_REGEXP } from '@core/constants/reg-exp';
 import { controlNames } from '@core/enums';
 
 @Injectable()
@@ -17,17 +14,11 @@ export class AuthFormGroupService {
     this.loginFormGroup = this.fb.group({
       [controlNames.EMAIL]: this.fb.control<string>('', {
         nonNullable: true,
-        validators: [
-          Validators.required,
-          Validators.pattern(EMAIL_REGEXP),
-        ],
+        validators: [Validators.required, Validators.pattern(EMAIL_REGEXP)],
       }),
       [controlNames.PASSWORD]: this.fb.control<string>('', {
         nonNullable: true,
-        validators: [
-          Validators.required,
-          Validators.pattern(PASSWORD_REGEXP),
-        ],
+        validators: [Validators.required, Validators.pattern(PASSWORD_REGEXP)],
       }),
     });
   }
@@ -44,17 +35,11 @@ export class AuthFormGroupService {
       }),
       [controlNames.EMAIL]: this.fb.control<string>('', {
         nonNullable: true,
-        validators: [
-          Validators.required,
-          Validators.pattern(EMAIL_REGEXP),
-        ],
+        validators: [Validators.required, Validators.pattern(EMAIL_REGEXP)],
       }),
       [controlNames.PASSWORD]: this.fb.control<string>('', {
         nonNullable: true,
-        validators: [
-          Validators.required,
-          Validators.pattern(PASSWORD_REGEXP),
-        ],
+        validators: [Validators.required, Validators.pattern(PASSWORD_REGEXP)],
       }),
     });
   }
