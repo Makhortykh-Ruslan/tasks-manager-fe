@@ -12,12 +12,11 @@ import { TmIconModule } from '@icons/tm-icon.module';
 import { tmIcon } from '@icons/tm-icons';
 
 @Component({
-  selector: 'app-input',
-  imports: [CommonModule, TmIconModule, ReactiveFormsModule],
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-input',
+    imports: [CommonModule, TmIconModule, ReactiveFormsModule],
+    templateUrl: './input.component.html',
+    styleUrls: ['./input.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent {
   public leftIconName = input<tmIcon | null>(null);

@@ -22,20 +22,19 @@ import { Store } from '@ngxs/store';
 import { AuthSpace } from '@core/store/auth-store/auth.actions';
 
 @Component({
-  selector: 'app-registration',
-  providers: [AuthFormGroupService, AuthService],
-  imports: [
-    CommonModule,
-    ButtonDirective,
-    ControlConverterPipe,
-    InputComponent,
-    LoaderComponent,
-    LogoComponent,
-  ],
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-registration',
+    providers: [AuthFormGroupService, AuthService],
+    imports: [
+        CommonModule,
+        ButtonDirective,
+        ControlConverterPipe,
+        InputComponent,
+        LoaderComponent,
+        LogoComponent,
+    ],
+    templateUrl: './registration.component.html',
+    styleUrls: ['./registration.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistrationComponent
   extends AbstractErrorMessages

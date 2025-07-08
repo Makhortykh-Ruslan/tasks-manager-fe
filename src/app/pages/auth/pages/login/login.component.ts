@@ -24,19 +24,18 @@ import { LoaderComponent } from '@core/components/loader/loader.component';
 import { ButtonDirective } from '@core/directives/button.directive';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    LogoComponent,
-    InputComponent,
-    ControlConverterPipe,
-    LoaderComponent,
-    ButtonDirective,
-  ],
-  providers: [AuthFormGroupService, AuthService],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        LogoComponent,
+        InputComponent,
+        ControlConverterPipe,
+        LoaderComponent,
+        ButtonDirective,
+    ],
+    providers: [AuthFormGroupService, AuthService]
 })
 export class LoginComponent
   extends AbstractErrorMessages

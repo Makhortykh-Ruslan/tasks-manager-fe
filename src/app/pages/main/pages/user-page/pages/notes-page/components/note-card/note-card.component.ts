@@ -13,12 +13,11 @@ import { CdkDragEnd } from '@angular/cdk/drag-drop';
 import { ActionsName, actionsName } from '@core/enums';
 
 @Component({
-  selector: 'app-note-card',
-  imports: [NgIf, CdkDrag, TmIconModule],
-  templateUrl: './note-card.component.html',
-  styleUrl: './note-card.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-note-card',
+    imports: [NgIf, CdkDrag, TmIconModule],
+    templateUrl: './note-card.component.html',
+    styleUrl: './note-card.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NoteCardComponent {
   public data = input.required<INote>();

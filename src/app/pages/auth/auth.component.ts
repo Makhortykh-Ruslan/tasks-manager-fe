@@ -2,11 +2,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  template: `
+    template: `
     <router-outlet></router-outlet>
   `,
-  imports: [RouterOutlet],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    imports: [RouterOutlet],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent {}

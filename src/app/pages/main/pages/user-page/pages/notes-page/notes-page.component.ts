@@ -25,19 +25,18 @@ import { NotesService } from '../../services/notes.service';
 import { NoteActionModel } from '@core/models';
 
 @Component({
-  selector: 'app-notes-page',
-  imports: [
-    InputComponent,
-    TmIconModule,
-    ButtonDirective,
-    NgIf,
-    LoaderComponent,
-    NoteCardComponent,
-  ],
-  templateUrl: './notes-page.component.html',
-  styleUrl: './notes-page.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-notes-page',
+    imports: [
+        InputComponent,
+        TmIconModule,
+        ButtonDirective,
+        NgIf,
+        LoaderComponent,
+        NoteCardComponent,
+    ],
+    templateUrl: './notes-page.component.html',
+    styleUrl: './notes-page.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotesPageComponent implements OnInit {
   public isShowLoading = signal<boolean>(false);

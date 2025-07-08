@@ -21,19 +21,18 @@ import { UserState } from '@core/store/user-store/user.state';
 import { INote } from '@core/interfaces';
 
 @Component({
-  selector: 'app-note-modal',
-  imports: [
-    ButtonDirective,
-    TmIconModule,
-    TextareaComponent,
-    InputComponent,
-    ControlConverterPipe,
-  ],
-  providers: [NoteFormGroupService],
-  templateUrl: './note-modal.component.html',
-  styleUrl: './note-modal.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-note-modal',
+    imports: [
+        ButtonDirective,
+        TmIconModule,
+        TextareaComponent,
+        InputComponent,
+        ControlConverterPipe,
+    ],
+    providers: [NoteFormGroupService],
+    templateUrl: './note-modal.component.html',
+    styleUrl: './note-modal.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NoteModalComponent
   extends AbstractErrorMessages

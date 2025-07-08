@@ -26,22 +26,21 @@ import { appRoutes } from '@core/constants';
 import { HamburgerComponent } from '@core/components/hamburger/hamburger.component';
 
 @Component({
-  selector: 'app-side-bar',
-  imports: [
-    TmIconModule,
-    LogoComponent,
-    RouterLink,
-    RouterLinkActive,
-    NavBarPipe,
-    AvatarComponent,
-    NgClass,
-    NgIf,
-    HamburgerComponent,
-  ],
-  templateUrl: './side-bar.component.html',
-  styleUrl: './side-bar.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    selector: 'app-side-bar',
+    imports: [
+        TmIconModule,
+        LogoComponent,
+        RouterLink,
+        RouterLinkActive,
+        NavBarPipe,
+        AvatarComponent,
+        NgClass,
+        NgIf,
+        HamburgerComponent,
+    ],
+    templateUrl: './side-bar.component.html',
+    styleUrl: './side-bar.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideBarComponent implements OnInit {
   public currentUser: Signal<IUser> = this.store.selectSignal(

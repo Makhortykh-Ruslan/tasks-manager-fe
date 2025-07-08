@@ -11,12 +11,11 @@ import { TmIconModule } from '../tm-icon.module';
 import { completeIconSet, TmIcon } from '../tm-icons';
 
 @Component({
-  selector: 'app-icons-preview',
-  templateUrl: './icons-preview.component.html',
-  styleUrls: ['./icons-preview.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, TmIconModule, NgForOf],
-  standalone: true,
+    selector: 'app-icons-preview',
+    templateUrl: './icons-preview.component.html',
+    styleUrls: ['./icons-preview.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ReactiveFormsModule, TmIconModule, NgForOf]
 })
 export class IconsPreviewComponent implements OnInit {
   public icons = completeIconSet;
