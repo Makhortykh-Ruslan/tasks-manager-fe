@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -7,6 +11,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './loader.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgClass],
+  standalone: true,
 })
 export class LoaderComponent {
   public isOverlay = input<boolean>();

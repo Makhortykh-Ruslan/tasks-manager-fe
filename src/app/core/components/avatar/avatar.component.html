@@ -1,4 +1,6 @@
 <aside class="component">
   <div class="avatar"></div>
-  <p *ngIf="isShowDelete()" class="text">Delete</p>
+  @if (isShowDelete()) {
+    <p class="text">Delete</p>
+  }
 </aside>

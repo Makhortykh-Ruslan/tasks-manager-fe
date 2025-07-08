@@ -35,8 +35,12 @@ import { AuthSpace } from '@core/store/auth-store/auth.actions';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
-export class RegistrationComponent extends AbstractErrorMessages implements OnInit {
+export class RegistrationComponent
+  extends AbstractErrorMessages
+  implements OnInit
+{
   public isShowLoading = signal<boolean>(false);
 
   public controlNames = controlNames;
@@ -65,7 +69,9 @@ export class RegistrationComponent extends AbstractErrorMessages implements OnIn
       .pipe(
         take(1),
         tap((response) => {
-          this.store.dispatch(new AuthSpace.SetAccessToken(response.model));
+          this.store.dispatch(
+            new AuthSpace.SetAccessToken(response.model),
+          );
           this.router.navigate(['']);
         }),
         finalize(() => this.isShowLoading.set(false)),
@@ -81,6 +87,7 @@ export class RegistrationComponent extends AbstractErrorMessages implements OnIn
 
   private initData(): void {
     this.authFormGroupService.initRegistrationFormGroup();
-    this.formGroup = this.authFormGroupService.getRegistrationFormGroup();
+    this.formGroup =
+      this.authFormGroupService.getRegistrationFormGroup();
   }
 }

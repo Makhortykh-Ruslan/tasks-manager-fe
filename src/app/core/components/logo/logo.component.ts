@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-logo',
@@ -8,5 +12,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
-  @Input() title = 'Tasks manager';
+  public title = input<string>('Tasks manager');
 }

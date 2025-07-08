@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 import { UserPageComponent } from './user-page.component';
-import { provideStore } from '@ngxs/store';
+import { provideStates } from '@ngxs/store';
 import { NotesState } from './store/notes.state';
 
 const children: Routes = [
@@ -13,7 +13,9 @@ const children: Routes = [
   {
     path: appRoutes.notes.routerPath,
     loadComponent: () =>
-      import('./pages/notes-page/notes-page.component').then((c) => c.NotesPageComponent),
+      import('./pages/notes-page/notes-page.component').then(
+        (c) => c.NotesPageComponent,
+      ),
   },
   {
     path: appRoutes.reminders.routerPath,
@@ -43,6 +45,6 @@ export const USER_ROUTES: Routes = [
     path: '',
     component: UserPageComponent,
     children,
-    providers: [provideStore([NotesState])],
+    providers: [provideStates([NotesState])],
   },
 ];
