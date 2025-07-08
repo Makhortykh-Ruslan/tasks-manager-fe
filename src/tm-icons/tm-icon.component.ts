@@ -54,10 +54,7 @@ export class TmIconComponent {
     div.innerHTML = svgContent;
     return (
       div.querySelector('svg') ||
-      this.document.createElementNS(
-        'http://www.w3.org/2000/svg',
-        'path',
-      )
+      this.document.createElementNS('http://www.w3.org/2000/svg', 'path')
     );
   }
 }

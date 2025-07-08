@@ -11,17 +11,9 @@ export class NoteFormGroupService {
 
   public initNoteFormGroup(data?: INote): void {
     this.noteFormGroup = this.fb.group({
-      [controlNames.TITLE]: [
-        data ? data.title : null,
-        Validators.required,
-      ],
-      [controlNames.DESCRIPTION]: [
-        data ? data.description : null,
-        Validators.required,
-      ],
-      [controlNames.DRAG_POSITION]: [
-        data ? data.dragPosition : { x: 0, y: 0 },
-      ],
+      [controlNames.TITLE]: [data ? data.title : null, Validators.required],
+      [controlNames.DESCRIPTION]: [data ? data.description : null, Validators.required],
+      [controlNames.DRAG_POSITION]: [data ? data.dragPosition : { x: 0, y: 0 }],
     });
   }
 

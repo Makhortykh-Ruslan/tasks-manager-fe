@@ -13,7 +13,6 @@ import { apiInterceptor, errorInterceptor } from '@core/interceptors';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { AuthState } from '@core/store/auth-store/auth.state';
 
-
 export const appConfig = {
   providers: [
     ...appRoutingProviders,

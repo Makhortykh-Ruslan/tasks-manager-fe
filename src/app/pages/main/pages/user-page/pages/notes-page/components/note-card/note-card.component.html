@@ -8,11 +8,7 @@
     [class.select]="isSelectCard"
     (click)="handleAction(ACTIONS_NAME.UPDATE)"
   >
-    <span
-      class="circle"
-      [class.select]="isSelectCard"
-      (click)="handleSelectCard()"
-    >
+    <span class="circle" [class.select]="isSelectCard" (click)="handleSelectCard()">
       <app-icon class="icon" [name]="'check'"></app-icon>
     </span>
     <header class="header mb-16">{{ note.title || '-' }}</header>

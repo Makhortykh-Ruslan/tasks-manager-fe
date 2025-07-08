@@ -6,9 +6,7 @@ const children: Routes = [
   {
     path: appRoutes.login.routerPath,
     loadComponent: () =>
-      import('./pages/login/login.component').then(
-        (c) => c.LoginComponent,
-      ),
+      import('./pages/login/login.component').then((c) => c.LoginComponent),
   },
   {
     path: appRoutes.registration.routerPath,

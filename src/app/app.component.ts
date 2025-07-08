@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  WritableSignal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { completeIconSet } from '@icons/tm-icons';
 import { TmIconsService } from '@icons/tm-icons.service';
@@ -19,11 +15,9 @@ import { MainLoaderService } from '@core/services';
   `,
   imports: [RouterOutlet, LoaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
 })
 export class AppComponent {
-  public loaderSignal: WritableSignal<boolean> =
-    this.mainLoaderService.getLoaderState();
+  public loaderSignal: WritableSignal<boolean> = this.mainLoaderService.getLoaderState();
 
   constructor(
     private epIconsService: TmIconsService,

@@ -3,5 +3,4 @@ export const LocalStorageKeys = {
   QUICKBOOKS_AUTH_MODEL: 'quick-books-auth',
 } as const;
 
-export type TLocalStorage =
-  (typeof LocalStorageKeys)[keyof typeof LocalStorageKeys];
+export type TLocalStorage = (typeof LocalStorageKeys)[keyof typeof LocalStorageKeys];

@@ -29,10 +29,6 @@
       <p class="name">{{ currentUser.userName || '-' }}</p>
       <p class="email">{{ currentUser.email || '-' }}</p>
     </div>
-    <app-icon
-      class="icon"
-      [name]="'sign_out'"
-      (click)="handleLogout()"
-    ></app-icon>
+    <app-icon class="icon" [name]="'sign_out'" (click)="handleLogout()"></app-icon>
   </footer>
 </section>

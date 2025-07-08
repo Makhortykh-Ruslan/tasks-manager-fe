@@ -1,9 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import {
-  DEFAULT_USER_STATE,
-  UserStateModel,
-} from '@core/store/user-store/user.model';
+import { DEFAULT_USER_STATE, UserStateModel } from '@core/store/user-store/user.model';
 import { UserSpace } from '@core/store/user-store/user.actions';
 import { UserService } from '@core/services';
 import { UserAdapters } from '@core/adapters/user-adapters';
@@ -34,10 +31,7 @@ export class UserState {
   }
 
   @Action(UserSpace.ResetCurrentUser)
-  ResetCurrentUser({
-    patchState,
-    dispatch,
-  }: StateContext<UserStateModel>) {
+  ResetCurrentUser({ patchState, dispatch }: StateContext<UserStateModel>) {
     localStorage.removeItem(LocalStorageKeys.ACCESS_TOKEN);
     patchState({ currentUser: null });
     dispatch(new NotesSpace.ResetNotes());

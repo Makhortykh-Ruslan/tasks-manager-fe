@@ -1,34 +1,37 @@
 <section class="component">
   <label for="tm-input" class="component-label">
-    {{ label }}
+    {{ label() }}
 
-    <span class="required" *ngIf="isRequired">*</span>
+    @if (isRequired()) {
+      <span class="required">*</span>
+    }
   </label>
 
-  <div
-    class="component-input"
-    [class.error]="formControl.errors && formControl.dirty"
-  >
-    <app-icon
-      class="icon left"
-      *ngIf="leftIconName() as iconName"
-      [name]="iconName"
-    ></app-icon>
-    <input
-      id="tm-input"
-      class="input"
-      [type]="type"
-      [formControl]="formControl"
-      [placeholder]="placeholder"
-    />
-    <app-icon
-      class="icon"
-      *ngIf="rightIconName() as iconName"
-      [name]="iconName"
-    ></app-icon>
-  </div>
+  @if (formControl(); as formControl) {
+    <div
+      class="component-input"
+      [class.error]="formControl.errors && formControl.dirty"
+    >
+      @if (leftIconName(); as iconName) {
+        <app-icon class="icon left" [name]="iconName"></app-icon>
+      }
+      <input
+        id="tm-input"
+        class="input"
+        [type]="type()"
+        [formControl]="formControl"
+        [placeholder]="placeholder()"
+      />
 
-  <span *ngIf="error" class="component-error">
-    {{ error }}
-  </span>
+      @if (rightIconName(); as iconName) {
+        <app-icon class="icon" [name]="iconName"></app-icon>
+      }
+    </div>
+  }
+
+  @if (error(); as error) {
+    <span class="component-error">
+      {{ error }}
+    </span>
+  }
 </section>

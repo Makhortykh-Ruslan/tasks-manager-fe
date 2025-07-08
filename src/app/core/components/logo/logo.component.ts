@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
+  input,
 } from '@angular/core';
 
 @Component({
@@ -12,5 +12,5 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
-  @Input() title = 'Tasks manager';
+  public title = input<string>('Tasks manager');
 }

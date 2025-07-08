@@ -7,10 +7,7 @@ import { Observable } from 'rxjs';
 export class AbstractHttpRequests {
   protected http = inject(HttpClient);
 
-  public httpGetRequest<T>(
-    url: string,
-    params: Params = {},
-  ): Observable<T> {
+  public httpGetRequest<T>(url: string, params: Params = {}): Observable<T> {
     const headers = this.getHttpHeaders();
 
     return this.http.get<T>(url, {
@@ -45,10 +42,7 @@ export class AbstractHttpRequests {
     }) as unknown as Observable<U>;
   }
 
-  public httpDeleteRequest<T>(
-    url: string,
-    params: Params = {},
-  ): Observable<T> {
+  public httpDeleteRequest<T>(url: string, params: Params = {}): Observable<T> {
     const headers = this.getHttpHeaders();
 
     return this.http.delete<T>(url, {

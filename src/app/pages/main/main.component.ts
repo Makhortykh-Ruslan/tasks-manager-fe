@@ -8,6 +8,5 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
   styleUrls: ['./main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, SideBarComponent],
-  standalone: true,
 })
 export class MainComponent {}

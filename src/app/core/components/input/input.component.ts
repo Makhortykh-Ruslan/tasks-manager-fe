@@ -1,9 +1,7 @@
-import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   input,
-  Input,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TLabels } from '@core/enums/labels';
@@ -13,7 +11,7 @@ import { tmIcon } from '@icons/tm-icons';
 
 @Component({
   selector: 'app-input',
-  imports: [CommonModule, TmIconModule, ReactiveFormsModule],
+  imports: [TmIconModule, ReactiveFormsModule],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,10 +20,12 @@ import { tmIcon } from '@icons/tm-icons';
 export class InputComponent {
   public leftIconName = input<tmIcon | null>(null);
   public rightIconName = input<tmIcon | null>(null);
-  @Input() type = 'text';
-  @Input() error = '';
-  @Input() isRequired = false;
-  @Input() label!: TLabels;
-  @Input() placeholder!: TPlaceholder;
-  @Input() formControl: FormControl = new FormControl(null);
+
+  public type = input<string>('text');
+  public error = input<string>('');
+  public isRequired = input<boolean>(false);
+
+  public label = input<TLabels>();
+  public placeholder = input<TPlaceholder>();
+  public formControl = input<FormControl>();
 }

@@ -91,7 +91,6 @@
   }
 }
 
-
 .dots {
   width: 15px;
   aspect-ratio: 1;
@@ -102,8 +101,28 @@
   animation: l5 1s infinite linear alternate;
 }
 @keyframes l5 {
-  0%  {box-shadow: 20px 0 $black, -20px 0 #0002;background: $black }
-  33% {box-shadow: 20px 0 $black, -20px 0 #0002;background: #0002}
-  66% {box-shadow: 20px 0 #0002,-20px 0 $black; background: #0002}
-  100%{box-shadow: 20px 0 #0002,-20px 0 $black; background: $black }
+  0% {
+    box-shadow:
+      20px 0 $black,
+      -20px 0 #0002;
+    background: $black;
+  }
+  33% {
+    box-shadow:
+      20px 0 $black,
+      -20px 0 #0002;
+    background: #0002;
+  }
+  66% {
+    box-shadow:
+      20px 0 #0002,
+      -20px 0 $black;
+    background: #0002;
+  }
+  100% {
+    box-shadow:
+      20px 0 #0002,
+      -20px 0 $black;
+    background: $black;
+  }
 }

@@ -8,6 +8,5 @@ import { RouterOutlet } from '@angular/router';
   `,
   imports: [RouterOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
 })
 export class UserPageComponent {}

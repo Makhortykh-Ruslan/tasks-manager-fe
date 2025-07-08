@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { appRoutes } from '@core/constants/routes';
 import { UserPageComponent } from './user-page.component';
-import { provideStore } from '@ngxs/store';
+import { provideStates } from '@ngxs/store';
 import { NotesState } from './store/notes.state';
 
 const children: Routes = [
@@ -45,6 +45,6 @@ export const USER_ROUTES: Routes = [
     path: '',
     component: UserPageComponent,
     children,
-    providers: [provideStore([NotesState])],
+    providers: [provideStates([NotesState])],
   },
 ];

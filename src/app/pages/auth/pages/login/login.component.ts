@@ -28,7 +28,6 @@ import { ButtonDirective } from '@core/directives/button.directive';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     LogoComponent,
     InputComponent,
@@ -37,6 +36,7 @@ import { ButtonDirective } from '@core/directives/button.directive';
     ButtonDirective,
   ],
   providers: [AuthFormGroupService, AuthService],
+  standalone: true,
 })
 export class LoginComponent
   extends AbstractErrorMessages

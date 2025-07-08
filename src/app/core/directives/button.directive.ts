@@ -1,11 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  inject,
-  Input,
-  OnInit,
-  Renderer2,
-} from '@angular/core';
+import { Directive, ElementRef, inject, Input, OnInit, Renderer2 } from '@angular/core';
 import { TButtonColor } from '@core/types/t-button';
 
 @Directive({
@@ -19,13 +12,7 @@ export class ButtonDirective implements OnInit {
   private elementRef = inject(ElementRef);
 
   public ngOnInit(): void {
-    this.renderer2.addClass(
-      this.elementRef.nativeElement,
-      'tm-button',
-    );
-    this.renderer2.addClass(
-      this.elementRef.nativeElement,
-      this.color,
-    );
+    this.renderer2.addClass(this.elementRef.nativeElement, 'tm-button');
+    this.renderer2.addClass(this.elementRef.nativeElement, this.color);
   }
 }
