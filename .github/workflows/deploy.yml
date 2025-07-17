@@ -29,8 +29,11 @@ jobs:
       - name: Build Angular App
         run: npm run build -- --configuration production
 
+      - name: Install start-server-and-test
+        run: npm install --save-dev start-server-and-test
+
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npm run cypress:ci
         env:
             CYPRESS_TEST_USER_LOGIN: ${{ secrets.CYPRESS_TEST_USER_LOGIN }}
             CYPRESS_TEST_USER_PASSWORD: ${{ secrets.CYPRESS_TEST_USER_PASSWORD }}
