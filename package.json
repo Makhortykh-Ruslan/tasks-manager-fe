@@ -10,7 +10,10 @@
     "test": "ng test",
     "lint:fix": "eslint \"{src,apps,libs,test}/**/*{.ts,.html}\" --fix",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
-    "generate-icons": "svg-to-ts-constants --config .svg-to-ts.json"
+    "generate-icons": "svg-to-ts-constants --config .svg-to-ts.json",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -23,13 +26,12 @@
     "@angular/platform-browser": "^20.0.5",
     "@angular/platform-browser-dynamic": "^20.0.5",
     "@angular/router": "^20.0.5",
-    "@ngxs/store": "^20.0.2",
     "@ngxs/devtools-plugin": "^20.0.2",
     "@ngxs/logger-plugin": "^20.0.2",
+    "@ngxs/store": "^20.0.2",
     "rxjs": "~7.8.1",
     "svg-to-ts": "^8.6.1",
-    "tslib": "^2.6.2",
-    "zone.js": "~0.15.1"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.0.5",
@@ -38,9 +40,11 @@
     "@angular-eslint/template-parser": "^20.0.0",
     "@angular/cli": "^20.0.5",
     "@angular/compiler-cli": "^20.0.5",
+    "@cypress/schematic": "^3.0.0",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "^8.36.0",
     "@typescript-eslint/parser": "^8.36.0",
+    "cypress": "latest",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
@@ -54,5 +58,4 @@
     "prettier": "^3.3.3",
     "typescript": "~5.8.0"
   }
-
 }
