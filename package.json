@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "ng serve --configuration production --port 4200",
     "no-hmr": "ng serve --no-hmr",
     "build": "ng build",
     "build:prod": "ng build --configuration production --base-href https://makhortykh-ruslan.github.io/tasks-manager-fe/",
@@ -13,7 +14,8 @@
     "generate-icons": "svg-to-ts-constants --config .svg-to-ts.json",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:ci": "start-server-and-test start:prod http://localhost:4200 'cypress run'",
   },
   "private": true,
   "dependencies": {

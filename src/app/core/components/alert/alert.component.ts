@@ -6,14 +6,13 @@ import {
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { AlertModel } from '@core/models/alert.model';
 import { NgClass } from '@angular/common';
-import { InputComponent } from '@core/components/input/input.component';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrl: './alert.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, InputComponent],
+  imports: [NgClass],
   standalone: true,
 })
 export class AlertComponent {
