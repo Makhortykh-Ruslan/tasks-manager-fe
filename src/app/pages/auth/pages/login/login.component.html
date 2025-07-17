@@ -8,6 +8,7 @@
 
     <app-input
       class="mb-20"
+      [attr.data-cy]="'login-input'"
       [label]="labels.EMAIL"
       [placeholder]="placeholders.EMAIL"
       [formControl]="formGroup.get(controlNames.EMAIL) | controlConverter"
@@ -16,6 +17,7 @@
 
     <app-input
       class="mb-24"
+      [attr.data-cy]="'password-input'"
       [type]="'password'"
       [label]="labels.PASSWORD"
       [placeholder]="placeholders.PASSWORD"
@@ -23,12 +25,8 @@
       [error]="passwordErrorMessage"
     ></app-input>
 
-    <!--    <div class="flex space-between mb-24">-->
-    <!--      <app-checkbox [label]="labels.REMEMBER_ME"></app-checkbox>-->
-    <!--      <p class="text blue">Forgot password</p>-->
-    <!--    </div>-->
-
     <button
+      [attr.data-cy]="'sign-in-btn'"
       [disabled]="formGroup.invalid || isShowLoading()"
       appButton
       class="mb-32 sing-in"

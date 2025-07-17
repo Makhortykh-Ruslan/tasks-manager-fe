@@ -1,4 +1,4 @@
-<aside class="component" [ngClass]="data.type">
+<aside [attr.data-cy]="'alert'" class="component" [ngClass]="data.type">
   <h4 class="title mb-12">{{ data.title }}</h4>
   <p class="test">{{ data.message || '' }}</p>
 </aside>
