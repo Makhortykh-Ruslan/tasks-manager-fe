@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, WritableSignal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  WritableSignal,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { completeIconSet } from '@icons/tm-icons';
 import { TmIconsService } from '@icons/tm-icons.service';
@@ -17,12 +22,12 @@ import { MainLoaderService } from '@core/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  public loaderSignal: WritableSignal<boolean> = this.mainLoaderService.getLoaderState();
+  public loaderSignal: WritableSignal<boolean> =
+    inject(MainLoaderService).getLoaderState();
 
-  constructor(
-    private epIconsService: TmIconsService,
-    private mainLoaderService: MainLoaderService,
-  ) {
-    epIconsService.registerIcons(completeIconSet);
+  private epIconsService = inject(TmIconsService);
+
+  constructor() {
+    this.epIconsService.registerIcons(completeIconSet);
   }
 }

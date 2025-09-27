@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { INote } from '@core/interfaces/i-note';
 import { NgIf } from '@angular/common';
 import { CdkDrag } from '@angular/cdk/drag-drop';

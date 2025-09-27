@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TLabels, TPlaceholder } from '@core/enums';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
