@@ -1,14 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { ButtonDirective } from '@core/directives/button.directive';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TmIconModule } from '@icons/tm-icon.module';
 import { TextareaComponent } from '@core/components/textarea/textarea.component';
 import { controlNames, labels, placeholders } from '@core/enums';
@@ -35,10 +27,7 @@ import { INote } from '@core/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class NoteModalComponent
-  extends AbstractErrorMessages
-  implements OnInit
-{
+export class NoteModalComponent extends AbstractErrorMessages implements OnInit {
   public modalData!: INote;
 
   public LABELS = labels;

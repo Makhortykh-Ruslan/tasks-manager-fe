@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   WritableSignal,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -22,12 +23,11 @@ import { MainLoaderService } from '@core/services';
 })
 export class AppComponent {
   public loaderSignal: WritableSignal<boolean> =
-    this.mainLoaderService.getLoaderState();
+    inject(MainLoaderService).getLoaderState();
 
-  constructor(
-    private epIconsService: TmIconsService,
-    private mainLoaderService: MainLoaderService,
-  ) {
-    epIconsService.registerIcons(completeIconSet);
+  private epIconsService = inject(TmIconsService);
+
+  constructor() {
+    this.epIconsService.registerIcons(completeIconSet);
   }
 }

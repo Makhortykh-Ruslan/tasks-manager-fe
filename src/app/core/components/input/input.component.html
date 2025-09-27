@@ -8,10 +8,7 @@
   </label>
 
   @if (formControl(); as formControl) {
-    <div
-      class="component-input"
-      [class.error]="formControl.errors && formControl.dirty"
-    >
+    <div class="component-input" [class.error]="formControl.errors && formControl.dirty">
       @if (leftIconName(); as iconName) {
         <app-icon class="icon left" [name]="iconName"></app-icon>
       }

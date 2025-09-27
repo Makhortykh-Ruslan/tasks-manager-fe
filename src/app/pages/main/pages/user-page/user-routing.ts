@@ -13,9 +13,7 @@ const children: Routes = [
   {
     path: appRoutes.notes.routerPath,
     loadComponent: () =>
-      import('./pages/notes-page/notes-page.component').then(
-        (c) => c.NotesPageComponent,
-      ),
+      import('./pages/notes-page/notes-page.component').then((c) => c.NotesPageComponent),
   },
   {
     path: appRoutes.reminders.routerPath,

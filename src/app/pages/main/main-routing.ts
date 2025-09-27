@@ -11,16 +11,12 @@ const children: Routes = [
   {
     path: appRoutes.admin.routerPath,
     loadComponent: () =>
-      import('./pages/admin-page/admin-page.component').then(
-        (c) => c.AdminPageComponent,
-      ),
+      import('./pages/admin-page/admin-page.component').then((c) => c.AdminPageComponent),
   },
   {
     path: appRoutes.user.routerPath,
     loadChildren: () =>
-      import('./pages/user-page/user-routing').then(
-        (r) => r.USER_ROUTES,
-      ),
+      import('./pages/user-page/user-routing').then((r) => r.USER_ROUTES),
   },
 ];
 
